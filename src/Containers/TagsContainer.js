@@ -2,9 +2,9 @@ import React from 'react';
 
 const TagsContainer = (props) => {
   return (
-    <div className='main-container'>
+    <React.Fragment>
       <h1>Tags container</h1>
-    </div>
+    </React.Fragment>
   );
 }
 

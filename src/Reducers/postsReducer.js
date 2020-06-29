@@ -7,6 +7,13 @@ export default (state = {
         ...state,
         posts: action.posts
       };
+    case 'CREATE_NEW_POST':
+      const posts = [...state.posts]
+      posts.unshift(action.post)
+      return {
+        ...state,
+        posts: posts
+      }
     default:
       return state;
   }

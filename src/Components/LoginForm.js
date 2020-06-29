@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { FormControl, TextField, Button } from '@material-ui/core';
+import { Paper, FormControl, TextField, Button } from '@material-ui/core';
+import { FormatListBulletedSharp } from '@material-ui/icons';
 
 const handleLogin = (e, props) => {
   e.preventDefault();
@@ -33,7 +34,7 @@ const handleLogin = (e, props) => {
       }
       else {
         localStorage.removeItem('auth_token');
-        props.setLoggedIn(false);
+        props.setLoggedIn(FormatListBulletedSharp);
         alert(loginResponse.message);
       }
     })
@@ -47,18 +48,20 @@ const handleLogin = (e, props) => {
 const LoginForm = (props) => {
   return (
     <form onSubmit={(e) => handleLogin(e, props)}>
-      <FormControl>
-        <TextField name="username_email" label="Username / Email" />
-        <TextField name="password" type="password" autoComplete="on" label="Password" />
-        <Button type="submit">Submit</Button>
-      </FormControl>
+      <Paper>
+        <FormControl>
+          <TextField name="username_email" label="Username / Email" />
+          <TextField name="password" type="password" autoComplete="on" label="Password" />
+          <Button type="submit">Submit</Button>
+        </FormControl>
+      </Paper>
     </form>
   )
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setLoggedIn: (value) => dispatch({ type: 'SET_LOGGED_IN', loggedIn: value })
+    setLoggedIn: loggedIn => dispatch({ type: 'SET_LOGGED_IN', loggedIn: loggedIn })
   }
 }
 
