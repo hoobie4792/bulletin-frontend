@@ -9,3 +9,23 @@ body {
 .main-container {
   border: 1px solid pink;
 }
+
+.post {
+  padding: 10px;
+}
+
+.post-title {
+  font-size: 20px;
+}
+
+.news-story-img {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.post-footer-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

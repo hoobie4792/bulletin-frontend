@@ -1,9 +1,15 @@
 import React from 'react';
-import Post from '../Components/Post';
+import NewsPost from '../Components/NewsPost';
+import UserPost from '../Components/UserPost';
 
 const mapPosts = (posts) => {
-  return posts.map((post, i) =>
-    <Post post={post} key={i} />
+  return posts.map((post, i) => {
+    if (post.is_news_story) {
+      return <NewsPost post={post} key={i} />
+    } else {
+      return <UserPost post={post} key={i} />
+    }
+  }
   );
 }
 
