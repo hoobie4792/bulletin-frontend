@@ -3,19 +3,47 @@ import { connect } from 'react-redux';
 import { Button, Icon } from '@material-ui/core';
 import { ThumbUpOutlined, ChatOutlined } from '@material-ui/icons';
 
-const likePost = (post) => {
+const likePost = (props) => {
+  const token = localStorage.getItem('auth_token');
 
+  if (!token) {
+    return;
+  }
+
+  const postObj = {
+    post: props.post
+  }
+
+  const fetchObj = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Auth-Token': token
+    },
+    body: JSON.stringify(postObj)
+  }
+
+  fetch('http://localhost:3000/api/v1/likes', fetchObj)
+    .then(res => res.json())
+    .then(postResponse => {
+      if (postResponse.message) {
+        alert(postResponse.message);
+      } else {
+        props.updatePosts(postResponse)
+      }
+    })
+    .catch(() => alert('Something went wrong'))
 }
 
-const PostFooter = ({ post }) => {
+const PostFooter = (props) => {
   return (
     <div className='post-footer'>
-      <Button className='post-footer-button' onClick={() => likePost(post)}>
+      <Button className='post-footer-button' onClick={() => likePost(props)}>
         <Icon>
           <ThumbUpOutlined />
         </Icon>
       </Button>
-      <span>{post.likes_count}</span>
+      <span>{props.post.likes_count}</span>
       <Button className='post-footer-button'>
         <Icon>
           <ChatOutlined />
@@ -25,4 +53,10 @@ const PostFooter = ({ post }) => {
   );
 }
 
-export default PostFooter
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updatePosts: (post) => dispatch({ type: 'UPDATE_POSTS', post: post })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(PostFooter);
