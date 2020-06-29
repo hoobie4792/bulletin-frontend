@@ -2,9 +2,9 @@ import React from 'react';
 
 const MessagesContainer = (props) => {
   return (
-    <div className='main-container'>
+    <React.Fragment>
       <h1>Messages container</h1>
-    </div>
+    </React.Fragment>
   );
 }
 

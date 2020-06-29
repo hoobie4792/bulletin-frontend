@@ -13,6 +13,7 @@ const Header = (props) => {
     localStorage.removeItem('auth_token');
     props.setLoggedIn(false);
     props.history.push('/home');
+    props.history.go();
   }
 
   const handleLogin = (props) => {
