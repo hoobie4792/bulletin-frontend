@@ -1,6 +1,6 @@
 import React from 'react';
 import CommentsList from './CommentsList';
-import NewCommentForm from '../Components/NewCommentForm';
+import NewCommentForm from '../../Components/Comments/NewCommentForm';
 
 const CommentsContainer = ({ post }) => {
   return (

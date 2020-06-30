@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import CommentsContainer from '../Containers/CommentsContainer';
+import CommentsContainer from '../../Containers/Comments/CommentsContainer';
 import { Button, Icon } from '@material-ui/core';
 import { ThumbUpOutlined, ChatOutlined } from '@material-ui/icons';
 
