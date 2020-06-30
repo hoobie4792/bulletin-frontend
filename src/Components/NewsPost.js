@@ -10,7 +10,6 @@ const NewsPost = ({ post }) => {
       <h4>Source: {post.news_source}</h4>
       <h4>Content: {post.content}</h4>
       <h4>Created at: {post.created_at}</h4>
-      <h4>Likes: {post.likes_count}</h4>
       <p>By: {post.news_author}</p>
       <PostFooter post={post} />
     </Paper>
