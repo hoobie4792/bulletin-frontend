@@ -7,6 +7,14 @@ export default (state = {
         ...state,
         user: action.user
       };
+    case 'UPDATE_FOLLOW':
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          following: action.following
+        }
+      }
     default:
       return state;
   }
