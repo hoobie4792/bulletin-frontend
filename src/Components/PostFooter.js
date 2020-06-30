@@ -52,6 +52,7 @@ const PostFooter = (props) => {
           <ChatOutlined />
         </Icon>
       </Button>
+      <span>{props.post.comments.length}</span>
       {commentDrawerOpen && <CommentsContainer post={props.post} />}
     </div>
   );
