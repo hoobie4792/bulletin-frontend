@@ -10,11 +10,20 @@ class UserPageContainer extends React.Component {
   }
 
   getUserInfo = () => {
-    fetch(`http://localhost:3000/api/v1/users/${this.props.match.params.username}`)
+    const token = localStorage.getItem('auth_token');
+
+    const fetchObj = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Auth-Token': token
+      }
+    }
+
+    fetch(`http://localhost:3000/api/v1/users/${this.props.match.params.username}`, fetchObj)
       .then(res => res.json())
       .then(user => {
         if (!user.message) {
-          console.log(user)
           this.props.getUser(user);
         } else {
           console.log(user.message);
