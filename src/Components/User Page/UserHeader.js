@@ -65,6 +65,7 @@ class UserHeader extends React.Component {
           alert(followResponse.message);
         } else {
           this.props.updateFollow(followResponse);
+          this.props.history.go();
         }
       })
       .catch((response) => alert('Something went wrong'))
