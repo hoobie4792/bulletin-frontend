@@ -16,8 +16,7 @@ const mapPosts = (posts) => {
 const PostsList = (props) => {
   return (
     <React.Fragment>
-      <h1>Posts</h1>
-      {mapPosts(props.posts)}
+      {props.posts && mapPosts(props.posts)}
     </React.Fragment>
   );
 }

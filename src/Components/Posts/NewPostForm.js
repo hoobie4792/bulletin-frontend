@@ -11,8 +11,14 @@ const handleNewPost = (e, props) => {
     return;
   }
 
+  const content = e.target.content.value;
+  const tags = content.split(' ').filter(word => word[0] === '#').map(tag => tag.slice(1).toLowerCase())
+
   const postObj = {
-    content: e.target.content.value
+    post: {
+      content: content,
+      tags: tags
+    }
   }
 
   const fetchObj = {
