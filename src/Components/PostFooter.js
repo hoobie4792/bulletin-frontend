@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import CommentsContainer from '../Containers/CommentsContainer';
 import { Button, Icon } from '@material-ui/core';
 import { ThumbUpOutlined, ChatOutlined } from '@material-ui/icons';
 
@@ -36,6 +37,8 @@ const likePost = (props) => {
 }
 
 const PostFooter = (props) => {
+  const [commentDrawerOpen, setCommentDrawer] = useState(false)
+
   return (
     <div className='post-footer'>
       <Button className='post-footer-button' onClick={() => likePost(props)}>
@@ -44,11 +47,12 @@ const PostFooter = (props) => {
         </Icon>
       </Button>
       <span>{props.post.likes_count}</span>
-      <Button className='post-footer-button'>
+      <Button className='post-footer-button' onClick={() => setCommentDrawer(!commentDrawerOpen)}>
         <Icon>
           <ChatOutlined />
         </Icon>
       </Button>
+      {commentDrawerOpen && <CommentsContainer post={props.post} />}
     </div>
   );
 }
