@@ -23,6 +23,7 @@ const Header = (props) => {
 
   const handleSignup = () => {
     handleClose();
+    props.history.push('/signup');
   }
 
   const handleClose = () => {
