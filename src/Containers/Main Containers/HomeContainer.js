@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import NewPostForm from '../Components/NewPostForm';
-import PostsList from './PostsList';
+import NewPostForm from '../../Components/Posts/NewPostForm';
+import PostsList from '../Posts/PostsList';
 
 class HomeContainer extends React.Component {
   componentDidMount() {

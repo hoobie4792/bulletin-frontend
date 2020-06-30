@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Grid } from '@material-ui/core';
 import { BrowserRouter } from 'react-router-dom'
-import Header from './Header'
-import Menu from './Menu';
-import MainContainer from '../Containers/MainContainer';
+import Header from './Navigation/Header'
+import Menu from './Navigation/Menu';
+import MainContainer from '../Containers/Main Containers/MainContainer';
 
 class App extends React.Component {
   componentDidMount() {

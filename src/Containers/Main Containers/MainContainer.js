@@ -4,10 +4,10 @@ import HomeContainer from './HomeContainer';
 import TagsContainer from './TagsContainer';
 import MessagesContainer from './MessagesContainer';
 import NotificationsContainer from './NotificationsContainer';
-import UserPageRedirect from '../Components/UserPageRedirect';
+import UserPageRedirect from '../../Components/User Page/UserPageRedirect';
 import UserPageContainer from './UserPageContainer';
-import LoginForm from '../Components/LoginForm';
-import SignupFormsContainer from './SignupFormsContainer';
+import LoginForm from '../../Components/Account/LoginForm';
+import SignupFormsContainer from '../Account/SignupFormsContainer';
 
 const MainContainer = (props) => {
   return (

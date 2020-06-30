@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import UserHeader from '../Components/UserHeader';
-import PostsList from './PostsList';
+import UserHeader from '../../Components/User Page/UserHeader';
+import PostsList from '../Posts/PostsList';
 
 class UserPageContainer extends React.Component {
   componentDidMount() {

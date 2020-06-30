@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SignupAccountForm from '../Components/SignupAccountForm';
-import SignupInterestsSourcesForm from '../Components/SignupInterestsSourcesForm'
+import SignupAccountForm from '../../Components/Account/SignupAccountForm';
+import SignupInterestsSourcesForm from '../../Components/Account/SignupInterestsSourcesForm'
 
 const SignupFormsContainer = () => {
   const [pickInterestsSources, setPickInterestsSources] = useState(false)

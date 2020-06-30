@@ -1,6 +1,6 @@
 import React from 'react';
-import NewsPost from '../Components/NewsPost';
-import UserPost from '../Components/UserPost';
+import NewsPost from '../../Components/Posts/NewsPost';
+import UserPost from '../../Components/Posts/UserPost';
 
 const mapPosts = (posts) => {
   return posts.map((post, i) => {

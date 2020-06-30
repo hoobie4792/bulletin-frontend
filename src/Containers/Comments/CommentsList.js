@@ -1,5 +1,5 @@
 import React from 'react';
-import Comment from '../Components/Comment';
+import Comment from '../../Components/Comments/Comment';
 import { Paper } from '@material-ui/core'
 
 const mapComments = (comments) => {
