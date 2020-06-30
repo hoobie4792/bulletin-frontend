@@ -6,7 +6,8 @@ import MessagesContainer from './MessagesContainer';
 import NotificationsContainer from './NotificationsContainer';
 import UserPageRedirect from '../Components/UserPageRedirect';
 import UserPageContainer from './UserPageContainer';
-import LoginForm from '../Components/LoginForm'
+import LoginForm from '../Components/LoginForm';
+import SignupFormsContainer from './SignupFormsContainer';
 
 const MainContainer = (props) => {
   return (
@@ -22,6 +23,7 @@ const MainContainer = (props) => {
         <Route exact path='/profile' component={UserPageRedirect} />
         <Route exact path='/profile/:username' component={UserPageContainer} />
         <Route exact path='/login' component={LoginForm} />
+        <Route exact path='/signup' component={SignupFormsContainer} />
       </Switch>
     </div>
   )

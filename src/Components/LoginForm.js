@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Paper, FormControl, TextField, Button } from '@material-ui/core';
-import { FormatListBulletedSharp } from '@material-ui/icons';
 
 const handleLogin = (e, props) => {
   e.preventDefault();
@@ -34,7 +33,7 @@ const handleLogin = (e, props) => {
       }
       else {
         localStorage.removeItem('auth_token');
-        props.setLoggedIn(FormatListBulletedSharp);
+        props.setLoggedIn(false);
         alert(loginResponse.message);
       }
     })
