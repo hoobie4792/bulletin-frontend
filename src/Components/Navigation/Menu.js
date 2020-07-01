@@ -12,21 +12,21 @@ import {
   PersonOutlined
 } from '@material-ui/icons';
 
-const Menu = (props) => {
-  const handleClick = (e, history) => {
-    props.history.push(`/${e.target.textContent.toLowerCase()}`)
-  }
+const handleClick = (e, props) => {
+  props.history.push(`/${e.target.textContent.toLowerCase()}`)
+}
 
+const Menu = (props) => {
   return (
     <div className='menu-container'>
       <List component="nav">
-        <ListItem button onClick={e => handleClick(e, props.history)}>
+        <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
             <HomeOutlined />
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
-        <ListItem button onClick={e => handleClick(e, props.history)}>
+        <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
             <LocalOfferOutlined />
           </ListItemIcon>
@@ -34,19 +34,19 @@ const Menu = (props) => {
         </ListItem>
         {props.loggedIn && (
           <React.Fragment>
-            <ListItem button onClick={e => handleClick(e, props.history)}>
+            <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
                 <MessageOutlined />
               </ListItemIcon>
               <ListItemText primary="Messages" />
             </ListItem>
-            <ListItem button onClick={e => handleClick(e, props.history)}>
+            <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
                 <NotificationsOutlined />
               </ListItemIcon>
               <ListItemText primary="Notifications" />
             </ListItem>
-            <ListItem button onClick={e => handleClick(e, props.history)}>
+            <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
                 <PersonOutlined />
               </ListItemIcon>

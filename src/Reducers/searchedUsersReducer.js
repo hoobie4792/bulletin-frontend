@@ -1,11 +1,11 @@
 export default (state = {
-  users: []
+  searchedUsers: []
 }, action) => {
   switch (action.type) {
-    case 'GET_SEARCH_USERS':
+    case 'GET_SEARCHED_USERS':
       return {
         ...state,
-        users: action.users
+        searchedUsers: action.searchedUsers
       }
     default:
       return state
