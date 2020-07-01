@@ -1,7 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Paper, FormControl, InputLabel, Input, Button } from '@material-ui/core';
 
-const handleSearch = (e) => {
+const handleSearch = (e, props) => {
+  e.preventDefault();
+
   const userObj = {
     user: {
       username: e.target.username.value
@@ -18,16 +21,16 @@ const handleSearch = (e) => {
 
   fetch('http://localhost:3000/api/v1/search-users', fetchObj)
     .then(res => res.json())
-    .then(searchResponse => {
-
+    .then(searchedUsers => {
+      props.getSearchedUsers(searchedUsers)
     })
     .catch(() => 'Something went wrong');
 }
 
-const FindUserForm = () => {
+const FindUserForm = (props) => {
   return (
     <React.Fragment>
-      <form onSubmit={(e) => handleSearch(e)}>
+      <form id='search-users-form' onSubmit={(e) => handleSearch(e, props)}>
         <Paper>
           <FormControl fullWidth>
             <InputLabel>Search Users</InputLabel>
@@ -40,4 +43,16 @@ const FindUserForm = () => {
   )
 }
 
-export default FindUserForm;
+const mapStateToProps = (state) => {
+  return {
+    searchedUsers: state.searchedUsersReducer.searchedUsers
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getSearchedUsers: searchedUsers => dispatch({ type: 'GET_SEARCHED_USERS', searchedUsers: searchedUsers })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FindUserForm);
