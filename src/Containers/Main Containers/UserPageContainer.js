@@ -10,8 +10,6 @@ class UserPageContainer extends React.Component {
   }
 
   getUserInfo = () => {
-    debugger;
-
     const token = localStorage.getItem('auth_token');
 
     const fetchObj = {
