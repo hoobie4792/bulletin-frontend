@@ -58,10 +58,4 @@ const PostFooter = (props) => {
   );
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updatePosts: (post) => dispatch({ type: 'UPDATE_POSTS', post: post })
-  }
-}
-
 export default PostFooter;
