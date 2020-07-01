@@ -29,7 +29,6 @@ class UserPageContainer extends React.Component {
           console.log(user.message);
         }
       })
-      .catch(() => alert('Something went wrong'));
   }
 
   renderUser = () => {
