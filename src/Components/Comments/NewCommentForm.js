@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Paper, FormControl, InputLabel, Input, Button } from '@material-ui/core';
 
 const handleNewComment = (e, props) => {
@@ -36,7 +35,7 @@ const handleNewComment = (e, props) => {
         props.updatePosts(post);
       }
     })
-    .catch(() => alert('Something went wrong'))
+    .catch((error) => alert('Something went wrong' + error))
 
   e.target.reset();
 }
@@ -55,10 +54,4 @@ const NewCommentForm = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updatePosts: (post) => dispatch({ type: 'UPDATE_POSTS', post: post })
-  }
-}
-
-export default connect(null, mapDispatchToProps)(NewCommentForm);
+export default NewCommentForm;

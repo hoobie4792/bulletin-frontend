@@ -8,7 +8,7 @@ const CommentsContainer = (props) => {
     // <CommentsList comments={comments} />
     <React.Fragment>
       <CommentsList comments={props.post.comments} />
-      {props.loggedIn && <NewCommentForm post={props.post} />}
+      {props.loggedIn && <NewCommentForm post={props.post} updatePosts={props.updatePosts} />}
     </React.Fragment>
   )
 }

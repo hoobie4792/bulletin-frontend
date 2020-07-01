@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import CommentsContainer from '../../Containers/Comments/CommentsContainer';
 import { Button, Icon } from '@material-ui/core';
 import { ThumbUpOutlined, ChatOutlined } from '@material-ui/icons';
@@ -34,7 +33,7 @@ const likePost = (props) => {
         props.updatePosts(postResponse)
       }
     })
-    .catch(() => alert('Something went wrong'))
+    .catch((error) => alert('Something went wrong ' + error))
 }
 
 const PostFooter = (props) => {
@@ -54,7 +53,7 @@ const PostFooter = (props) => {
         </Icon>
       </Button>
       <span>{props.post.comments.length}</span>
-      {commentDrawerOpen && <CommentsContainer post={props.post} />}
+      {commentDrawerOpen && <CommentsContainer post={props.post} updatePosts={props.updatePosts} />}
     </div>
   );
 }
@@ -65,4 +64,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PostFooter);
+export default PostFooter;

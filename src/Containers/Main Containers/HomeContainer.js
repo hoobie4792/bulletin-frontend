@@ -31,7 +31,7 @@ class HomeContainer extends React.Component {
     return (
       <React.Fragment>
         {this.props.isLoggedIn && <NewPostForm />}
-        <PostsList posts={this.props.posts} />
+        <PostsList posts={this.props.posts} updatePosts={this.props.updatePosts} />
       </React.Fragment>
     );
   }
@@ -46,7 +46,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPosts: (posts) => dispatch({ type: 'GET_POSTS', posts: posts })
+    getPosts: (posts) => dispatch({ type: 'GET_POSTS', posts: posts }),
+    updatePosts: (post) => dispatch({ type: 'UPDATE_POSTS', post: post })
   }
 }
 
