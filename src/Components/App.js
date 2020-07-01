@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Header from './Navigation/Header'
 import Menu from './Navigation/Menu';
 import MainContainer from '../Containers/Main Containers/MainContainer';
+import SearchUsersContainer from '../Containers/SearchUser/SearchUsersContainer';
 
 class App extends React.Component {
   componentDidMount() {
@@ -25,6 +26,9 @@ class App extends React.Component {
           </Grid>
           <Grid item xs={6}>
             <MainContainer />
+          </Grid>
+          <Grid item xs={3}>
+            <SearchUsersContainer />
           </Grid>
         </Grid>
       </BrowserRouter>

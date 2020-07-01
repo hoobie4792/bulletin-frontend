@@ -8,6 +8,7 @@ const likePost = (props) => {
   const token = localStorage.getItem('auth_token');
 
   if (!token) {
+    alert('Must be logged in to like post');
     return;
   }
 

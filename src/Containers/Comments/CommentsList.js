@@ -13,8 +13,11 @@ const mapComments = (comments) => {
 const CommentsList = ({ comments }) => {
   return (
     <React.Fragment>
-      <h4>Comments</h4>
-      {mapComments(comments)}
+      {comments.length > 0 &&
+        <React.Fragment>
+          <h4>Comments</h4>
+          {mapComments(comments)}
+        </React.Fragment>}
     </React.Fragment>
   )
 }
