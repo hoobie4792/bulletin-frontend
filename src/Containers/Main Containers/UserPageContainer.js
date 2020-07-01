@@ -37,7 +37,7 @@ class UserPageContainer extends React.Component {
       {userPopulated && (
         <React.Fragment>
           <UserHeader user={this.props.user} />
-          <PostsList posts={this.props.user.posts} />
+          <PostsList posts={this.props.user.posts} updatePosts={this.props.updatePosts} />
         </React.Fragment>
       )}
     </React.Fragment>
@@ -60,7 +60,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUser: user => dispatch({ type: 'GET_USER', user: user })
+    getUser: user => dispatch({ type: 'GET_USER', user: user }),
+    updatePosts: (post) => dispatch({ type: 'UPDATE_USER_POSTS', post: post })
   }
 }
 

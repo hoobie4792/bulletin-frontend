@@ -15,6 +15,21 @@ export default (state = {
           following: action.following
         }
       }
+    case 'UPDATE_USER_POSTS':
+      const updatePosts = [...state.user.posts];
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          posts: updatePosts.map(post => {
+            if (post.id === action.post.id) {
+              return action.post;
+            } else {
+              return post;
+            }
+          })
+        }
+      }
     default:
       return state;
   }
