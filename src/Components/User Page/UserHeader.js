@@ -35,7 +35,7 @@ class UserHeader extends React.Component {
         } else {
           alert(usernameResponse.message);
         }
-      });
+      })
   }
 
   handleFollow = () => {

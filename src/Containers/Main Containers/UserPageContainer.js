@@ -10,6 +10,8 @@ class UserPageContainer extends React.Component {
   }
 
   getUserInfo = () => {
+    debugger;
+
     const token = localStorage.getItem('auth_token');
 
     const fetchObj = {
@@ -29,7 +31,6 @@ class UserPageContainer extends React.Component {
           console.log(user.message);
         }
       })
-      .catch(() => alert('Something went wrong'));
   }
 
   renderUser = () => {
