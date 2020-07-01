@@ -8,6 +8,8 @@ const handleNewComment = (e, props) => {
   const token = localStorage.getItem('auth_token');
 
   if (!token) {
+    alert('Must be logged in to write comment');
+    e.target.reset();
     return;
   }
 

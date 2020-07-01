@@ -1,9 +1,10 @@
 import React from 'react';
+import NotificationsList from '../Notifications/NotificationsList';
 
 const NotificationsContainer = (props) => {
   return (
     <React.Fragment>
-      <h1>Notifications container</h1>
+      <NotificationsList />
     </React.Fragment>
   );
 }
