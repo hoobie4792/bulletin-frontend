@@ -21,17 +21,17 @@ class App extends React.Component {
       <BrowserRouter>
         <Header />
         <div className='content-container'>
-        <Grid container>
-          <Grid item xs={3}>
-            <Menu />
+          <Grid container>
+            <Grid item xs={3}>
+              <Menu />
+            </Grid>
+            <Grid item xs={6}>
+              <MainContainer />
+            </Grid>
+            <Grid item xs={3}>
+              <SearchUsersContainer />
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <MainContainer />
-          </Grid>
-          <Grid item xs={3}>
-            <SearchUsersContainer />
-          </Grid>
-        </Grid>
         </div>
       </BrowserRouter>
     );
