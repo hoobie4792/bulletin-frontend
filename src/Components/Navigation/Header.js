@@ -51,7 +51,7 @@ const Header = (props) => {
   }
 
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" style={{background: '#192835'}}>
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           Bulletin

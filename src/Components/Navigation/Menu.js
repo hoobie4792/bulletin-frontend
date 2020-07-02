@@ -22,13 +22,13 @@ const Menu = (props) => {
       <List component="nav" style={{ position: 'fixed' }}>
         <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
-            <HomeOutlined />
+            <HomeOutlined style={{ color: '#8798A5' }} />
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
         <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
-            <LocalOfferOutlined />
+            <LocalOfferOutlined style={{ color: '#8798A5' }} />
           </ListItemIcon>
           <ListItemText primary="Tags" />
         </ListItem>
@@ -36,19 +36,19 @@ const Menu = (props) => {
           <React.Fragment>
             <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
-                <MessageOutlined />
+                <MessageOutlined style={{ color: '#8798A5' }} />
               </ListItemIcon>
               <ListItemText primary="Messages" />
             </ListItem>
             <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
-                <NotificationsOutlined />
+                <NotificationsOutlined style={{ color: '#8798A5' }} />
               </ListItemIcon>
               <ListItemText primary="Notifications" />
             </ListItem>
             <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
-                <PersonOutlined />
+                <PersonOutlined style={{ color: '#8798A5' }} />
               </ListItemIcon>
               <ListItemText primary="Profile" />
             </ListItem>
