@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
 import loggedInReducer from './Reducers/loggedInReducer';
-import messagesReducer from './Reducers/messagesReducer';
+import conversationsReducer from './Reducers/conversationsReducer';
 import notificationsReducer from './Reducers/notificationsReducer';
 import postsReducer from './Reducers/postsReducer';
 import searchedUsersReducer from './Reducers/searchedUsersReducer';
@@ -9,7 +9,7 @@ import userReducer from './Reducers/userReducer';
 
 const rootReducer = combineReducers({
   loggedInReducer: loggedInReducer,
-  messagesReducer: messagesReducer,
+  conversationsReducer: conversationsReducer,
   notificationsReducer: notificationsReducer,
   postsReducer: postsReducer,
   searchedUsersReducer: searchedUsersReducer,

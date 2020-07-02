@@ -1,8 +1,8 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom';
 import HomeContainer from './HomeContainer';
 import TagsContainer from './TagsContainer';
-import MessagesContainer from './MessagesContainer';
+import ConversationsContainer from './ConversationsContainer';
 import NotificationsContainer from './NotificationsContainer';
 import UserPageRedirect from '../../Components/User Page/UserPageRedirect';
 import UserPageContainer from './UserPageContainer';
@@ -18,7 +18,7 @@ const MainContainer = (props) => {
         </Route>
         <Route exact path='/home' component={HomeContainer} />
         <Route exact path='/tags' component={TagsContainer} />
-        <Route exact path='/messages' component={MessagesContainer} />
+        <Route exact path='/messages' component={ConversationsContainer} />
         <Route exact path='/notifications' component={NotificationsContainer} />
         <Route exact path='/profile' component={UserPageRedirect} />
         <Route exact path='/profile/:username' component={UserPageContainer} />
@@ -26,7 +26,7 @@ const MainContainer = (props) => {
         <Route exact path='/signup' component={SignupFormsContainer} />
       </Switch>
     </div>
-  )
-}
+  );
+};
 
 export default MainContainer;
