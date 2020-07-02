@@ -19,7 +19,7 @@ const handleClick = (e, props) => {
 const Menu = (props) => {
   return (
     <div className='menu-container'>
-      <List component="nav">
+      <List component="nav" style={{ position: 'fixed' }}>
         <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
             <HomeOutlined />
