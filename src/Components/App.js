@@ -20,6 +20,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Header />
+        <div className='content-container'>
         <Grid container>
           <Grid item xs={3}>
             <Menu />
@@ -31,6 +32,7 @@ class App extends React.Component {
             <SearchUsersContainer />
           </Grid>
         </Grid>
+        </div>
       </BrowserRouter>
     );
   }

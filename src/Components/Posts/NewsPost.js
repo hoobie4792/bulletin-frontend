@@ -4,7 +4,7 @@ import PostFooter from './PostFooter';
 
 const NewsPost = (props) => {
   return (
-    <Paper className='post' variant="outlined">
+    <Paper className='post' variant="outlined" style={{ background: '#253a4d', color: '#FDFFFF' }}>
       <a className='post-title' href={props.post.news_url} target='_blank' rel="noopener noreferrer">{props.post.news_title}</a>
       {props.post.news_image && <img className='news-story-img' src={props.post.news_image} alt='news-story' />}
       <h4>Source: {props.post.news_source}</h4>

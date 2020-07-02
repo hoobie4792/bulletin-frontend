@@ -41,13 +41,13 @@ const PostFooter = (props) => {
 
   return (
     <div className='post-footer'>
-      <Button className='post-footer-button' onClick={() => likePost(props)}>
+      <Button className='post-footer-button' style={{ color: '#8798A5' }} onClick={() => likePost(props)}>
         <Icon>
           <ThumbUpOutlined />
         </Icon>
       </Button>
       <span>{props.post.likes_count}</span>
-      <Button className='post-footer-button' onClick={() => setCommentDrawer(!commentDrawerOpen)}>
+      <Button className='post-footer-button' style={{ color: '#8798A5' }} onClick={() => setCommentDrawer(!commentDrawerOpen)}>
         <Icon>
           <ChatOutlined />
         </Icon>

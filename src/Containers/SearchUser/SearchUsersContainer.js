@@ -5,10 +5,10 @@ import SearchUsersList from '../../Components/SearchUser/SearchUsersList';
 
 const FindUserContainer = (props) => {
   return (
-    <React.Fragment>
+    <div className='search-users-container'>
       <SearchUsersForm />
       <SearchUsersList searchedUsers={props.searchedUsers} />
-    </React.Fragment>
+    </div>
   )
 }
 
