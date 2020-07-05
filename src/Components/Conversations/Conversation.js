@@ -15,7 +15,7 @@ const getLastMessage = (messages) => {
 
 const Conversation = (props) => {
   return (
-    <Paper onClick={() => props.loadConversation(props.conversation, props.username, props.conversationOpen, props.setConversationOpen)} style={{ cursor: 'pointer' }}>
+    <Paper onClick={() => props.loadConversation(props.conversation, props.username, props.openConversation, props.setOpenConversation)} style={{ cursor: 'pointer' }}>
       <p>Participants: {mapParticipants(props.conversation.participants)}</p>
       <p>Last message: {getLastMessage(props.conversation.messages)}</p>
     </Paper>
