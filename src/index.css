@@ -50,3 +50,10 @@ body {
   overflow-y:scroll;
   overflow-x:hidden;
 }
+
+.close-chat-button {
+  margin-top: 10px;
+  border-radius: 5px;
+  background: #97e4f3;
+  width: 30%;
+}
