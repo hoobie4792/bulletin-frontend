@@ -2,7 +2,7 @@ export default (
   state = {
     username: '',
     conversations: [],
-    conversationOpen: false
+    openConversation: null
   },
   action
 ) => {
@@ -13,10 +13,24 @@ export default (
         username: action.username,
         conversations: action.conversations
       };
-    case "SET_CONVERSATION_OPEN":
+    case "SET_OPEN_CONVERSATION":
       return {
         ...state,
-        conversationOpen: action.value
+        openConversation: action.conversation
+      }
+    case 'ADD_MESSAGE_TO_CONVERSATION':
+      return {
+        ...state,
+        conversations: state.conversations.map(conversation => {
+          if (conversation.id === action.conversationId) {
+            return {
+              ...conversation,
+              messages: [...conversation.messages, action.message]
+            };
+          } else {
+            return conversation;
+          }
+        })
       }
     default:
       return state;

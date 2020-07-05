@@ -57,3 +57,9 @@ body {
   background: #97e4f3;
   width: 30%;
 }
+
+.new-conversation-search-user-container {
+  margin: auto;
+  width: 80%;
+  padding: 5px;
+}

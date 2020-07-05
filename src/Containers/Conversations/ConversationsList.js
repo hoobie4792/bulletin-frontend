@@ -7,8 +7,8 @@ const mapConversations = (props) => {
     conversation={conversation}
     loadConversation={props.loadConversation}
     username={props.username}
-    conversationOpen={props.conversationOpen}
-    setConversationOpen={props.setConversationOpen}
+    openConversation={props.openConversation}
+    setOpenConversation={props.setOpenConversation}
   />);
 };
 
