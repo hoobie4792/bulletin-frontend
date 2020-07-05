@@ -1,7 +1,8 @@
 export default (
   state = {
     username: '',
-    conversations: []
+    conversations: [],
+    conversationOpen: false
   },
   action
 ) => {
@@ -12,6 +13,11 @@ export default (
         username: action.username,
         conversations: action.conversations
       };
+    case "SET_CONVERSATION_OPEN":
+      return {
+        ...state,
+        conversationOpen: action.value
+      }
     default:
       return state;
   }

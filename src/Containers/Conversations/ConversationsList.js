@@ -6,6 +6,9 @@ const mapConversations = (props) => {
     key={conversation.id}
     conversation={conversation}
     loadConversation={props.loadConversation}
+    username={props.username}
+    conversationOpen={props.conversationOpen}
+    setConversationOpen={props.setConversationOpen}
   />);
 };
 
