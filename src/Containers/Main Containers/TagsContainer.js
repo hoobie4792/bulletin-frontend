@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TagSearchForm from '../../Components/Tags/TagSearchForm';
-import PostList from '../Posts/PostsList';
+import PostsList from '../Posts/PostsList';
 
 class TagsContainer extends React.Component {
   componentDidMount() {
@@ -12,7 +12,7 @@ class TagsContainer extends React.Component {
     return (
       <React.Fragment>
         <TagSearchForm />
-        <PostList posts={this.props.posts} />
+        <PostsList posts={this.props.posts} />
       </React.Fragment>
     );
   }

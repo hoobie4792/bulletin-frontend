@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import InterestsNewsSourcesMenu from './InterestsNewsSourcesMenu';
 
 // Icons
 import {
@@ -17,6 +18,7 @@ const handleClick = (e, props) => {
 }
 
 const Menu = (props) => {
+
   return (
     <div className='menu-container'>
       <List component="nav" style={{ position: 'fixed' }}>
@@ -52,6 +54,8 @@ const Menu = (props) => {
               </ListItemIcon>
               <ListItemText primary="Profile" />
             </ListItem>
+            <hr />
+            <InterestsNewsSourcesMenu />
           </React.Fragment>
         )}
       </List>
