@@ -8,6 +8,7 @@ import UserPageRedirect from '../../Components/User Page/UserPageRedirect';
 import UserPageContainer from './UserPageContainer';
 import LoginForm from '../../Components/Account/LoginForm';
 import SignupFormsContainer from '../Account/SignupFormsContainer';
+import UpdateProfileContainer from './UpdateProfileContainer';
 import InterestsContainer from './InterestContainer';
 import NewsSourcesContainer from './NewsSourcesContainer';
 
@@ -26,6 +27,7 @@ const MainContainer = (props) => {
         <Route exact path='/profile/:username' component={UserPageContainer} />
         <Route exact path='/login' component={LoginForm} />
         <Route exact path='/signup' component={SignupFormsContainer} />
+        <Route exact path='/update-profile' component={UpdateProfileContainer} />
         <Route exact path='/interests/:interest' component={InterestsContainer} />
         <Route exact path='/news-sources/:newsSource' component={NewsSourcesContainer} />
       </Switch>

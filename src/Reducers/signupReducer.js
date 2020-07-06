@@ -21,11 +21,9 @@ export default (state = {
         selectedSources: [...state.selectedSources, action.source]
       };
     case 'REMOVE_SOURCE':
-      let selectedSources = [...state.selectedSources]
-      selectedSources.splice(selectedSources.findIndex(source => source === action.source), 1)
       return {
         ...state,
-        selectedSources: selectedSources
+        selectedSources: [...state.selectedSources].filter(source => source !== action.source)
       };
     case 'ADD_INTEREST':
       return {
@@ -33,11 +31,9 @@ export default (state = {
         selectedInterests: [...state.selectedInterests, action.interest]
       };
     case 'REMOVE_INTEREST':
-      let selectedInterests = [...state.selectedInterests]
-      selectedInterests.splice(selectedInterests.findIndex(interest => interest === action.interest), 1)
       return {
         ...state,
-        selectedInterests: selectedInterests
+        selectedInterests: [...state.selectedInterests].filter(interest => interest !== action.interest)
       };
     default:
       return state

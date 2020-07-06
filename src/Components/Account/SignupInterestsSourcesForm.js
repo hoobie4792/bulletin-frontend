@@ -9,6 +9,7 @@ class SignupInterestsSourcesForm extends React.Component {
   componentDidMount() {
     this.fetchSources();
     this.fetchInterests();
+    this.fetchUserInterestsAndNewsSources();
   }
 
   fetchSources = () => {
@@ -25,16 +26,58 @@ class SignupInterestsSourcesForm extends React.Component {
       .catch(() => alert('Something went wrong'));
   }
 
+  fetchUserInterestsAndNewsSources = () => {
+    const token = localStorage.getItem('auth_token');
+
+    if (!token) {
+      return;
+    }
+
+    const fetchObj = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Auth-Token': token
+      }
+    }
+
+    fetch('http://localhost:3000/api/v1/get-interests-and-news-sources', fetchObj)
+      .then(res => res.json())
+      .then(iNResponse => {
+        if (iNResponse.message) {
+          alert(iNResponse.message);
+        } else {
+          iNResponse.interests.forEach(interest => {
+            this.props.addInterest(interest.id);
+          })
+          iNResponse.news_sources.forEach(newsSource => {
+            this.props.addSource(newsSource.id);
+          })
+        }
+      });
+  }
+
   mapSources = () => {
-    return this.props.sources.map(source => <SignupSource key={source.id} source={source} handleSourceChange={this.handleSourceChange} />)
+    return this.props.sources.map(source => <SignupSource
+      key={source.id}
+      source={source}
+      handleSourceChange={this.handleSourceChange}
+      checked={this.props.selectedSources.includes(source.id)}
+    />)
   }
 
   mapInterests = () => {
-    return this.props.interests.map(interest => <SignupInterest key={interest.id} interest={interest} handleInterestChange={this.handleInterestChange} />)
+    return this.props.interests.map(interest => <SignupInterest
+      key={interest.id}
+      interest={interest}
+      handleInterestChange={this.handleInterestChange}
+      checked={this.props.selectedInterests.includes(interest.id)}
+    />)
   }
 
   handleSourceChange = (e) => {
-    const id = e.target.name;
+    e.preventDefault();
+    const id = parseInt(e.target.name);
     if (this.props.selectedSources.includes(id)) {
       this.props.removeSource(id);
     } else {
@@ -43,7 +86,8 @@ class SignupInterestsSourcesForm extends React.Component {
   }
 
   handleInterestChange = (e) => {
-    const id = e.target.name;
+    e.preventDefault();
+    const id = parseInt(e.target.name);
     if (this.props.selectedInterests.includes(id)) {
       this.props.removeInterest(id);
     } else {
@@ -88,6 +132,7 @@ class SignupInterestsSourcesForm extends React.Component {
           alert(sourcesResponse.message);
         } else {
           this.props.history.push('/home');
+          this.props.history.go();
         }
       })
       .catch(() => alert('Something went wrong'));
