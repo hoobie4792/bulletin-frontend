@@ -44,9 +44,7 @@ class SignupInterestsSourcesForm extends React.Component {
     fetch('http://localhost:3000/api/v1/get-interests-and-news-sources', fetchObj)
       .then(res => res.json())
       .then(iNResponse => {
-        if (iNResponse.message) {
-          alert(iNResponse.message);
-        } else {
+        if (!iNResponse.message) {
           iNResponse.interests.forEach(interest => {
             this.props.addInterest(interest.id);
           })

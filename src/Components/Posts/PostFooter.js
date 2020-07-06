@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import CommentsContainer from '../../Containers/Comments/CommentsContainer';
 import { Button, Icon } from '@material-ui/core';
-import { ThumbUpOutlined, ChatOutlined } from '@material-ui/icons';
+import { ThumbUpOutlined, ChatOutlined, ShareOutlined } from '@material-ui/icons';
+import SharePostModal from './SharePostModal';
 
 const likePost = (props) => {
   const token = localStorage.getItem('auth_token');
@@ -38,6 +39,7 @@ const likePost = (props) => {
 
 const PostFooter = (props) => {
   const [commentDrawerOpen, setCommentDrawer] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <div className='post-footer'>
@@ -53,7 +55,13 @@ const PostFooter = (props) => {
         </Icon>
       </Button>
       <span>{props.post.comments.length}</span>
+      <Button className='post-footer-button' style={{ color: '#8798A5', float: 'right' }} onClick={() => setModalOpen(true)}>
+        <Icon>
+          <ShareOutlined />
+        </Icon>
+      </Button>
       {commentDrawerOpen && <CommentsContainer post={props.post} updatePosts={props.updatePosts} />}
+      {modalOpen && <SharePostModal open={modalOpen} handleClose={() => setModalOpen(false)} post={props.post} updatePosts={props.updatePosts} />}
     </div>
   );
 }
