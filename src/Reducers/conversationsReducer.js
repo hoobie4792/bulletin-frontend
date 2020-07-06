@@ -32,6 +32,11 @@ export default (
           }
         })
       }
+    case 'ADD_CONVERSATION':
+      return {
+        ...state,
+        conversations: [...state.conversations, action.conversation]
+      }
     default:
       return state;
   }

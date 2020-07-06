@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Paper, FormControl, InputLabel, Input, Button, List, ListItem, ListItemText } from '@material-ui/core';
 
-const handleSearch = (e, searchedParticipants, setSearchedParticipants) => {
+const handleSearch = (e, setSearchedParticipants) => {
   e.preventDefault();
 
   const userObj = {
@@ -40,7 +41,7 @@ const addUserToParticipants = (e, setSearchedParticipants, participants, setPart
   setSearchedParticipants([]);
 }
 
-const handleNewConversation = (e, participants) => {
+const handleNewConversation = (e, participants, props) => {
   e.preventDefault();
 
   const token = localStorage.getItem('auth_token');
@@ -71,7 +72,8 @@ const handleNewConversation = (e, participants) => {
       if (conversationResponse.message) {
         alert(conversationResponse.message)
       } else {
-        debugger;
+        props.addConversation(conversationResponse);
+        props.loadConversation(conversationResponse, props.username, props.openConversation, props.setOpenConversation);
       }
     })
     .catch(error => alert(`Something went wrong - ${error}`));
@@ -85,7 +87,7 @@ const NewConversationForm = (props) => {
     <div className='new-conversation-form'>
       <div className='new-conversation-search-user-container'>
         <Paper>
-          <form id='new-conversation-search-user-form' onSubmit={(e) => handleSearch(e, searchedParticipants, setSearchedParticipants)}>
+          <form id='new-conversation-search-user-form' onSubmit={(e) => handleSearch(e, setSearchedParticipants)}>
             <FormControl fullWidth>
               <InputLabel>Search Users</InputLabel>
               <Input name="username" placeholder='Search for a user!' />
@@ -100,7 +102,7 @@ const NewConversationForm = (props) => {
       <hr />
       <h3>Participants</h3>
       <p>{participants.join(', ')}</p>
-      <form onSubmit={(e) => handleNewConversation(e, participants)}>
+      <form onSubmit={(e) => handleNewConversation(e, participants, props)}>
         <Paper>
           <FormControl fullWidth>
             <Button type="submit">Start Conversation</Button>
@@ -111,4 +113,10 @@ const NewConversationForm = (props) => {
   )
 }
 
-export default NewConversationForm;
+const matchDispatchToProps = (dispatch) => {
+  return {
+    addConversation: conversation => dispatch({ type: 'ADD_CONVERSATION', conversation: conversation })
+  }
+}
+
+export default connect(null, matchDispatchToProps)(NewConversationForm);
