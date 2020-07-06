@@ -116,7 +116,12 @@ class ConversationsContainer extends React.Component {
           openConversation={this.props.openConversation}
           setOpenConversation={this.props.setOpenConversation}
         />
-        <NewConversationFooter />
+        <NewConversationFooter
+          loadConversation={this.loadConversation}
+          username={this.props.username}
+          openConversation={this.props.openConversation}
+          setOpenConversation={this.props.setOpenConversation}
+        />
         <Widget
           title='Bulletin Chat'
           subtitle=''
