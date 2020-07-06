@@ -1,15 +1,25 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
-import PostFooter from './PostFooter';
+import RegularUserPost from './RegularUserPost';
+import SharedUserPost from './SharedUserPost';
+
+const renderPost = (props) => {
+  return props.post.shared_post ?
+    <SharedUserPost
+      post={props.post}
+      updatePosts={props.updatePosts}
+    />
+    :
+    <RegularUserPost
+      post={props.post}
+      updatePosts={props.updatePosts}
+    />
+}
 
 const UserPost = (props) => {
   return (
-    <Paper className='post' variant="outlined">
-      <h4>User: <a href={`/profile/${props.post.user.username}`}>{props.post.user.username}</a></h4>
-      <h4>Content: {props.post.content}</h4>
-      <h4>Created at: {props.post.created_at}</h4>
-      <PostFooter post={props.post} updatePosts={props.updatePosts} />
-    </Paper>
+    <React.Fragment>
+      {renderPost(props)}
+    </React.Fragment>
   )
 }
 

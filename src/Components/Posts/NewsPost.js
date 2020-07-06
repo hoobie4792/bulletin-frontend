@@ -11,7 +11,7 @@ const NewsPost = (props) => {
       <h4>Content: {props.post.content}</h4>
       <h4>Created at: {props.post.created_at}</h4>
       <p>By: {props.post.news_author}</p>
-      <PostFooter post={props.post} updatePosts={props.updatePosts} />
+      {!props.isSharedPost && <PostFooter post={props.post} updatePosts={props.updatePosts} />}
     </Paper>
   )
 }

@@ -23,7 +23,6 @@ class InterestsNewsSourcesMenu extends React.Component {
     const token = localStorage.getItem('auth_token');
 
     if (!token) {
-      alert('Must be logged in to get interests and news sources');
       return;
     }
 
@@ -38,9 +37,7 @@ class InterestsNewsSourcesMenu extends React.Component {
     fetch('http://localhost:3000/api/v1/get-interests-and-news-sources', fetchObj)
       .then(res => res.json())
       .then(iNResponse => {
-        if (iNResponse.message) {
-          alert(iNResponse.message)
-        } else {
+        if (!iNResponse.message) {
           this.props.setInterestsAndNewsSources(iNResponse.interests, iNResponse.news_sources)
         }
       })
