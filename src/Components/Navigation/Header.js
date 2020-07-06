@@ -16,6 +16,11 @@ const Header = (props) => {
     props.history.go();
   }
 
+  const handleEditProfile = (props) => {
+    handleClose();
+    props.history.push('/update-profile');
+  }
+
   const handleLogin = (props) => {
     handleClose();
     props.history.push('/login');
@@ -37,7 +42,10 @@ const Header = (props) => {
   const renderMenuItems = (props) => {
     if (localStorage.getItem('auth_token')) {
       return (
-        <MenuItem onClick={() => handleLogout(props)}>Logout</MenuItem>
+        <div className='logged-in-menu'>
+          <MenuItem onClick={() => handleLogout(props)}>Logout</MenuItem>
+          <MenuItem onClick={() => handleEditProfile(props)}>Update Profile</MenuItem>
+        </div>
       )
     }
     else {
@@ -51,7 +59,7 @@ const Header = (props) => {
   }
 
   return (
-    <AppBar position="sticky" style={{background: '#192835'}}>
+    <AppBar position="sticky" style={{ background: '#192835' }}>
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           Bulletin
