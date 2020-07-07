@@ -36,9 +36,8 @@ body::-webkit-scrollbar {
   margin: 0px 0px 50px 0px;
   padding: 5px 20px;
   background: #253a4d;
-  border: 2px solid #203343;
   color: #FDFFFF;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .user-post {
@@ -46,8 +45,7 @@ body::-webkit-scrollbar {
   padding: 5px 20px;
   background: #253a4d; 
   color: #FDFFFF;
-  border: 2px solid #203343;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .user-post-content-container {
@@ -57,7 +55,9 @@ body::-webkit-scrollbar {
 }
 
 .shared-post-container {
-  border-top: 2px solid #3d6081;
+  margin-bottom: 20px;
+  border: 1px solid #3d6081;
+  border-radius: 4px;
 }
 
 .shared-post-container > div {
@@ -68,10 +68,12 @@ body::-webkit-scrollbar {
 .user-post-username {
   text-decoration: underline;
   font-size: 11pt;
+  cursor: pointer;
+  float: left;
 }
 
 .user-post-content {
-  padding: 10px;
+  padding: 25px;
   font-size: 18pt;
 }
 
@@ -134,6 +136,11 @@ body::-webkit-scrollbar {
   height: auto;
 }
 
+.post-date {
+  font-size: 10pt;
+  float: right;
+}
+
 .post-content {
   padding: 20px;
   font-size: 12pt;
@@ -190,12 +197,12 @@ body::-webkit-scrollbar {
 
 .comment-form > input {
   display: block;
-  margin: 10px auto;
+  margin: 20px auto;
   padding: 8px;
   width: 97%;
   background: #203343;
+  border: 1px solid #192835;
   color: #FDFFFF;
-  border: 2px solid #253a4d;
   border-radius: 20px;
 }
 
@@ -208,9 +215,9 @@ body::-webkit-scrollbar {
   margin: auto auto 5px auto;
   padding: 8px;
   width: 97%;
-  background: #203343;
+  background: #253a4d;
   color: #FDFFFF;
-  border: 2px solid #253a4d;
+  border: 2px solid #192835;
   border-radius: 20px;
 }
 
@@ -219,10 +226,11 @@ body::-webkit-scrollbar {
   margin-top: 10px;
   padding: 8px 20px 8px 20px;
   text-align: center;
-  background: #203343;
+  background: #253a4d;
   color: #FDFFFF;
-  border: 2px solid #253a4d;
+  border: 2px solid #192835;
   border-radius: 20px;
+  cursor: pointer;
   float: right;
 }
 
