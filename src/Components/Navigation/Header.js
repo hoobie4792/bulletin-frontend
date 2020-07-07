@@ -90,12 +90,13 @@ class Header extends React.Component {
 
   render() {
     return (
-      <AppBar position="sticky" style={{ background: '#192835' }}>
+      <AppBar elevation={0} position="sticky" style={{ background: 'transparent' }}>
         <Toolbar>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
+          <Typography variant="h3" style={{ marginLeft: '9%', marginTop: '2%', flexGrow: 1 }}>
             Bulletin
           </Typography>
           <IconButton
+            style={{ marginRight: '9%' }}
             onClick={this.handleMenu}
             color="inherit"
           >

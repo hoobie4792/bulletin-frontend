@@ -12,6 +12,7 @@ const handleNewPost = (e, props) => {
 
   const content = e.target.content.value;
   const tags = content.split(' ').filter(word => word[0] === '#').map(tag => tag.slice(1).toLowerCase())
+  debugger;
 
   const postObj = {
     post: {

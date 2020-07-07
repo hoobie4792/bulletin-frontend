@@ -24,13 +24,13 @@ const Menu = (props) => {
       <List className='hidden-scroll' component="nav" style={{ position: 'fixed', width: '20%', maxHeight: '80vh', overflowY: 'scroll' }}>
         <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
-            <HomeOutlined style={{ color: '#8798A5' }} />
+            <HomeOutlined style={{ color: '#FDFFFF' }} />
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
         <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
-            <LocalOfferOutlined style={{ color: '#8798A5' }} />
+            <LocalOfferOutlined style={{ color: '#FDFFFF' }} />
           </ListItemIcon>
           <ListItemText primary="Tags" />
         </ListItem>
@@ -38,19 +38,19 @@ const Menu = (props) => {
           <React.Fragment>
             <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
-                <MessageOutlined style={{ color: '#8798A5' }} />
+                <MessageOutlined style={{ color: '#FDFFFF' }} />
               </ListItemIcon>
               <ListItemText primary="Messages" />
             </ListItem>
             <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
-                <NotificationsOutlined style={{ color: '#8798A5' }} />
+                <NotificationsOutlined style={{ color: '#FDFFFF' }} />
               </ListItemIcon>
               <ListItemText primary="Notifications" />
             </ListItem>
             <ListItem button onClick={e => handleClick(e, props)}>
               <ListItemIcon>
-                <PersonOutlined style={{ color: '#8798A5' }} />
+                <PersonOutlined style={{ color: '#FDFFFF' }} />
               </ListItemIcon>
               <ListItemText primary="Profile" />
             </ListItem>

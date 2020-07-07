@@ -8,10 +8,8 @@ const RegularUserPost = (props) => {
     <div className='user-post'>
       <div className='user-post-content-container'>
         <div className='user-post-username' onClick={() => props.history.push(`/profile/${props.post.user.username}`)}>{props.post.user.username}</div>
+        <div className='post-date'>{formatDate(props.post.created_at)}</div>
         <div className='user-post-content'>{props.post.content}</div>
-        <div className='post-bottom'>
-          <div className='post-date'>{formatDate(props.post.created_at)}</div>
-        </div>
       </div>
       {!props.isSharedPost && <PostFooter post={props.post} updatePosts={props.updatePosts} />}
     </div>
