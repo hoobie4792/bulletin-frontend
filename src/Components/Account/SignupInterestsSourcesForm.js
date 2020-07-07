@@ -12,6 +12,9 @@ class SignupInterestsSourcesForm extends React.Component {
     this.fetchUserInterestsAndNewsSources();
   }
 
+  fetchedNewsSources = false;
+  fetchedInterests = false;
+
   fetchSources = () => {
     fetch('http://localhost:3000/api/v1/news_sources')
       .then(res => res.json())
@@ -129,11 +132,11 @@ class SignupInterestsSourcesForm extends React.Component {
         if (sourcesResponse.message) {
           alert(sourcesResponse.message);
         } else {
-          this.props.history.push('/home');
-          this.props.history.go();
+          this.fetchedNewsSources = true;
+          this.waitFetch();
         }
       })
-      .catch(() => alert('Something went wrong'));
+      .catch((error) => alert(`Something went wrong: ${error}`));
   }
 
   submitInterests = (token) => {
@@ -158,10 +161,18 @@ class SignupInterestsSourcesForm extends React.Component {
         if (interestsResponse.message) {
           alert(interestsResponse.message);
         } else {
-          this.props.history.push('/home');
+          this.fetchedInterests = true;
+          this.waitFetch();
         }
       })
-      .catch(() => alert('Something went wrong'));
+      .catch((error) => alert(`Something went wrong: ${error}`));
+  }
+
+  waitFetch = () => {
+    if (this.fetchedNewsSources && this.fetchedNewsSources) {
+      this.props.history.push('/home');
+      this.props.history.go();
+    }
   }
 
   render() {
