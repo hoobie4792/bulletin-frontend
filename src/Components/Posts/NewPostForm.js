@@ -46,15 +46,14 @@ const handleNewPost = (e, props) => {
 
 const NewPostForm = (props) => {
   return (
-    <form onSubmit={(e) => handleNewPost(e, props)}>
-      <Paper>
-        <FormControl fullWidth>
-          <InputLabel>New Post</InputLabel>
-          <Input name="content" placeholder='Write a new post!' />
-          <Button type="submit">Post</Button>
-        </FormControl>
-      </Paper>
-    </form>
+    <div className='new-post-form-container'>
+      <form className='new-post-form' onSubmit={(e) => handleNewPost(e, props)}>
+        <div className='post-form'>
+          <input type='text' name='content' placeholder='Write a new post...' />
+          <input type='submit' value='Post' />
+        </div>
+      </form>
+    </div>
   )
 }
 

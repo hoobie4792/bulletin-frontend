@@ -3,6 +3,11 @@ body {
   background: #192835;
   color: #FDFFFF;
   font-weight: 500;
+  font-family: Haettenschweiler, Arial, Helvetica, sans-serif, sans-serif;
+}
+
+::placeholder {
+  color: #FDFFFF;
 }
 
 .content-container {
@@ -18,29 +23,56 @@ body {
   width: 20%;
 }
 
-.post {
+.news-story-post {
   margin: 50px 0px;
-  padding: 20px;
-}
-
-.post > a {
+  padding: 5px 20px;
+  background: #253a4d;
+  border: 2px solid #203343;
   color: #FDFFFF;
+  border-radius: 8px;
 }
 
-.post-title {
-  font-size: 20px;
+.user-post {
+  margin: 50px 0px;
+  padding: 5px 20px;
+  background: #253a4d; 
+  color: #FDFFFF;
+  border: 2px solid #203343;
+  border-radius: 8px;
 }
 
-.news-story-img {
-  width: 100%;
-  height: auto;
-  margin-top: 10px;
+.user-post-content-container {
+  display: block;
+  margin: 20px auto;
+  width: 95%;
 }
 
-.post-footer-button {
-  background: none;
-  border: none;
-  cursor: pointer;
+.shared-post-container {
+  border-top: 2px solid #3d6081;
+}
+
+.shared-post-container > div {
+  margin: 30px auto;
+  width: 80%;
+}
+
+.user-post-username {
+  text-decoration: underline;
+  font-size: 11pt;
+}
+
+.user-post-content {
+  padding: 10px;
+  font-size: 18pt;
+}
+
+.post-footer {
+  padding-top: 10px;
+  border-top: 2px solid #3d6081;
+}
+
+.post-icon {
+  padding: 0px 0px 12px 0px;
 }
 
 .fixed-content {
@@ -71,4 +103,174 @@ body {
   transform: translateY(-50%);
   background-color: #192835;
   padding: 20px;
+}
+
+.post-title {
+  padding: 20px 0px;
+  font-size: 18px;
+}
+
+.news-story-content-container {
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+  background: #203343;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.news-story-content-container > img {
+  width: 100%;
+  height: auto;
+}
+
+.post-content {
+  padding: 20px;
+  font-size: 12pt;
+}
+
+.news-story-author {
+  padding: 20px;
+  font-size: 10pt;
+}
+
+.post-bottom {
+  margin-bottom: 30px;
+}
+
+.post-bottom > div {
+  font-size: 10pt;
+  text-align: right;
+}
+
+.news-story-source {
+  float: right;
+}
+
+.comments-container {
+  border-top: 2px solid #3d6081;
+}
+
+.comments-list {
+  margin: auto;
+}
+
+.comment {
+  margin: 20px 0px;
+  padding: 10px;
+  background: #203343;
+  border-radius: 10px;
+}
+
+.comment-user {
+  font-size: 11pt;
+  text-decoration: underline;
+  padding: 0px 0px 5px 0px;
+  cursor: pointer;
+}
+
+.comment-content {
+  font-size: 14pt;
+}
+
+.comment-date {
+  text-align: right;
+  font-size: 8pt;
+}
+
+.comment-form > input {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 97%;
+  background: #203343;
+  color: #FDFFFF;
+  border: 2px solid #253a4d;
+  border-radius: 20px;
+}
+
+.post-form {
+  padding-bottom: 50px;
+}
+
+.post-form > input[type=text] {
+  display: block;
+  margin: auto;
+  padding: 8px;
+  width: 97%;
+  background: #203343;
+  color: #FDFFFF;
+  border: 2px solid #253a4d;
+  border-radius: 20px;
+}
+
+.post-form > input[type=submit] {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 20px 8px 20px;
+  text-align: center;
+  background: #203343;
+  color: #FDFFFF;
+  border: 2px solid #253a4d;
+  border-radius: 20px;
+  float: right;
+}
+
+.tag-search-form {
+  padding-bottom: 50px;
+}
+
+.tag-search-form > input[type=text] {
+  display: block;
+  margin: auto;
+  padding: 8px;
+  width: 97%;
+  background: #203343;
+  color: #FDFFFF;
+  border: 2px solid #253a4d;
+  border-radius: 20px;
+}
+
+.tag-search-form > input[type=submit] {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 20px 8px 20px;
+  text-align: center;
+  background: #203343;
+  color: #FDFFFF;
+  border: 2px solid #253a4d;
+  border-radius: 20px;
+  float: right;
+}
+
+.user-header {
+  background: #394852;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-header-username {
+  font-size: 18pt;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #192835;
+}
+
+.user-header-info {
+  padding: 20px 20px 0px 20px;
+}
+
+.user-header-bio {
+  font-size: 10pt;
+  padding-bottom: 5px;
+}
+
+.user-header-member-since {
+  font-size: 10pt;
+}
+
+.user-header-count {
+  font-size: 10pt;
+  padding-bottom: 5px;
+  text-align: right;
 }

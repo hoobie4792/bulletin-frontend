@@ -4,83 +4,116 @@ import { withRouter } from 'react-router';
 import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 
-const Header = (props) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+class Header extends React.Component {
+  state = {
+    anchorEl: null,
+    username: ''
+  }
 
-  const handleLogout = (props) => {
-    handleClose();
+  componentDidMount() {
+    this.getUsername();
+  }
+
+  getUsername = () => {
+    const token = localStorage.getItem('auth_token');
+
+    if (!token) {
+      return
+    }
+
+    const fetchObj = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Auth-Token': token
+      }
+    }
+
+    fetch('http://localhost:3000/api/v1/get-username', fetchObj)
+      .then(res => res.json())
+      .then(usernameResponse => {
+        if (usernameResponse.username) {
+          this.setState({ ...this.state, username: usernameResponse.username });
+        }
+      })
+  }
+
+  handleLogout = () => {
+    this.handleClose();
     localStorage.removeItem('auth_token');
-    props.setLoggedIn(false);
-    props.history.push('/home');
-    props.history.go();
+    this.props.setLoggedIn(false);
+    this.props.history.push('/home');
+    this.props.history.go();
   }
 
-  const handleEditProfile = (props) => {
-    handleClose();
-    props.history.push('/update-profile');
+  handleEditProfile = (props) => {
+    this.handleClose();
+    this.props.history.push('/update-profile');
   }
 
-  const handleLogin = (props) => {
-    handleClose();
-    props.history.push('/login');
+  handleLogin = (props) => {
+    this.handleClose();
+    this.props.history.push('/login');
   }
 
-  const handleSignup = () => {
-    handleClose();
-    props.history.push('/signup');
+  handleSignup = () => {
+    this.handleClose();
+    this.props.history.push('/signup');
   }
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  handleClose = () => {
+    this.setState({ anchorEl: null });
   };
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+  handleMenu = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
   };
 
-  const renderMenuItems = (props) => {
+  renderMenuItems = () => {
     if (localStorage.getItem('auth_token')) {
       return (
         <div className='logged-in-menu'>
-          <MenuItem onClick={() => handleLogout(props)}>Logout</MenuItem>
-          <MenuItem onClick={() => handleEditProfile(props)}>Update Profile</MenuItem>
+          <MenuItem onClick={() => this.handleLogout(this.props)}>Logout</MenuItem>
+          <MenuItem onClick={() => this.handleEditProfile(this.props)}>Update Profile</MenuItem>
         </div>
       )
     }
     else {
       return (
         [
-          <MenuItem key='Log In' onClick={() => handleLogin(props)}>Log In</MenuItem>,
-          <MenuItem key='Sign Up' onClick={() => handleSignup(props)}>Sign Up</MenuItem>
+          <MenuItem key='Log In' onClick={() => this.handleLogin(this.props)}>Log In</MenuItem>,
+          <MenuItem key='Sign Up' onClick={() => this.handleSignup(this.props)}>Sign Up</MenuItem>
         ]
       )
     }
   }
 
-  return (
-    <AppBar position="sticky" style={{ background: '#192835' }}>
-      <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          Bulletin
+  render() {
+    return (
+      <AppBar position="sticky" style={{ background: '#192835' }}>
+        <Toolbar>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            Bulletin
           </Typography>
-        <IconButton
-          onClick={handleMenu}
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-        >
-          {renderMenuItems(props)}
-        </Menu>
-      </Toolbar>
-    </AppBar>
-  );
+          <IconButton
+            onClick={this.handleMenu}
+            color="inherit"
+          >
+            <AccountCircle style={{ paddingRight: '10px' }} />
+            <Typography>{this.state.username}</Typography>
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={this.state.anchorEl}
+            open={Boolean(this.state.anchorEl)}
+            onClose={this.handleClose}
+          >
+            {this.renderMenuItems(this.props)}
+          </Menu>
+        </Toolbar>
+      </AppBar>
+    );
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

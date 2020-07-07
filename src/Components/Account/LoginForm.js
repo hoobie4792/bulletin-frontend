@@ -29,7 +29,8 @@ const handleLogin = (e, props) => {
       if (loginResponse.token) {
         localStorage.setItem('auth_token', loginResponse.token);
         props.setLoggedIn(true);
-        props.history.push('/home')
+        props.history.push('/home');
+        props.history.go();
       }
       else {
         localStorage.removeItem('auth_token');

@@ -1,16 +1,21 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { withRouter } from 'react-router';
 import PostFooter from './PostFooter';
+import formatDate from '../../Helpers/formatDate';
 
 const RegularUserPost = (props) => {
   return (
-    <Paper className='post' variant="outlined">
-      <h4>User: <a href={`/profile/${props.post.user.username}`}>{props.post.user.username}</a></h4>
-      <h4>Content: {props.post.content}</h4>
-      <h4>Created at: {props.post.created_at}</h4>
+    <div className='user-post'>
+      <div className='user-post-content-container'>
+        <div className='user-post-username' onClick={() => props.history.push(`/profile/${props.post.user.username}`)}>{props.post.user.username}</div>
+        <div className='user-post-content'>{props.post.content}</div>
+        <div className='post-bottom'>
+          <div className='post-date'>{formatDate(props.post.created_at)}</div>
+        </div>
+      </div>
       {!props.isSharedPost && <PostFooter post={props.post} updatePosts={props.updatePosts} />}
-    </Paper>
+    </div>
   )
 }
 
-export default RegularUserPost;
+export default withRouter(RegularUserPost);
