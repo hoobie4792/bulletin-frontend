@@ -21,7 +21,7 @@ const Menu = (props) => {
 
   return (
     <div className='menu-container'>
-      <List component="nav" style={{ position: 'fixed', width: '20%' }}>
+      <List className='hidden-scroll' component="nav" style={{ position: 'fixed', width: '20%', maxHeight: '80vh', overflowY: 'scroll' }}>
         <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
             <HomeOutlined style={{ color: '#8798A5' }} />
