@@ -21,7 +21,7 @@ const Menu = (props) => {
 
   return (
     <div className='menu-container'>
-      <List component="nav" style={{ position: 'fixed' }}>
+      <List component="nav" style={{ position: 'fixed', width: '20%' }}>
         <ListItem button onClick={e => handleClick(e, props)}>
           <ListItemIcon>
             <HomeOutlined style={{ color: '#8798A5' }} />

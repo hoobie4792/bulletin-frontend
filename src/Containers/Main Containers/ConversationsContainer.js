@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Paper } from '@material-ui/core';
-import ConversationsSearchForm from '../../Components/Conversations/ConversationsSearchForm';
 import ConversationsList from '../Conversations/ConversationsList';
 import NewConversationFooter from '../../Components/Conversations/NewConversationFooter';
 import { Widget, deleteMessages, addResponseMessage, addUserMessage, markAllAsRead, toggleWidget } from 'react-chat-widget'
@@ -108,7 +107,6 @@ class ConversationsContainer extends React.Component {
   render() {
     return (
       <Paper>
-        <ConversationsSearchForm conversations={this.props.conversations} />
         <ConversationsList
           conversations={this.props.conversations}
           loadConversation={this.loadConversation}

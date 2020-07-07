@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Paper, FormControl, InputLabel, Input, Button } from '@material-ui/core';
 
 const handleSearch = (e, props) => {
   e.preventDefault();
@@ -30,15 +29,12 @@ const handleSearch = (e, props) => {
 const FindUserForm = (props) => {
   return (
     <React.Fragment>
-      <form id='search-users-form' onSubmit={(e) => handleSearch(e, props)}>
-        <Paper>
-          <FormControl fullWidth>
-            <InputLabel>Search Users</InputLabel>
-            <Input name="username" placeholder='Search for a user!' />
-            <Button type="submit">Search</Button>
-          </FormControl>
-        </Paper>
-      </form>
+      <div className='search-form-container'>
+        <form className='bulletin-form' onSubmit={(e) => handleSearch(e, props)}>
+          <input type='text' name='username' placeholder='Search users...' />
+          <input type='submit' value='Search users...' />
+        </form>
+      </div>
     </React.Fragment>
   )
 }
