@@ -101,7 +101,8 @@ class InterestsNewsSourcesMenu extends React.Component {
                 {this.mapInterests()}
               </List>
             </Collapse>
-          </React.Fragment>}
+          </React.Fragment>
+        }
         {this.props.newsSources.length > 0 &&
           <React.Fragment>
             <ListItem button onClick={this.handleNewsSourcesClick}>
@@ -113,7 +114,8 @@ class InterestsNewsSourcesMenu extends React.Component {
                 {this.mapNewsSources()}
               </List>
             </Collapse>
-          </React.Fragment>}
+          </React.Fragment>
+        }
       </List>
     )
   }
