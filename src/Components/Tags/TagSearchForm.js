@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Paper, FormControl, InputLabel, Input, Button } from '@material-ui/core';
 
 const handleTagSearch = (e, props) => {
   e.preventDefault();
@@ -45,11 +44,9 @@ const handleTagSearch = (e, props) => {
 const TagSearchForm = (props) => {
   return (
     <div className='search-tag-form-container'>
-      <form onSubmit={(e) => handleTagSearch(e, props)}>
-        <div className='tag-search-form'>
-          <input type='text' name='tags' placeholder='Search a tag...' />
-          <input type='submit' value='Search' />
-        </div>
+      <form className='bulletin-form' onSubmit={(e) => handleTagSearch(e, props)}>
+        <input type='text' name='tags' placeholder='Search a tag...' />
+        <input type='submit' value='Search' />
       </form>
     </div>
   )

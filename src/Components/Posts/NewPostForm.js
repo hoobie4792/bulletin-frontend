@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Paper, FormControl, InputLabel, Input, Button } from '@material-ui/core'
 
 const handleNewPost = (e, props) => {
   e.preventDefault();
@@ -47,11 +46,9 @@ const handleNewPost = (e, props) => {
 const NewPostForm = (props) => {
   return (
     <div className='new-post-form-container'>
-      <form className='new-post-form' onSubmit={(e) => handleNewPost(e, props)}>
-        <div className='post-form'>
-          <input type='text' name='content' placeholder='Write a new post...' />
-          <input type='submit' value='Post' />
-        </div>
+      <form className='bulletin-form' onSubmit={(e) => handleNewPost(e, props)}>
+        <input type='text' name='content' placeholder='Write a new post...' />
+        <input type='submit' value='Post' />
       </form>
     </div>
   )

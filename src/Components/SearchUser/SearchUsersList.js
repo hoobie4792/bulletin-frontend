@@ -20,9 +20,13 @@ const mapUsers = (props) => {
 
 const FindUserList = (props) => {
   return (
-    <List>
-      {mapUsers(props)}
-    </List>
+    <React.Fragment>
+      {props.searchedUsers.length > 0 && <div className='search-users-list'>
+        <List>
+          {mapUsers(props)}
+        </List>
+      </div>}
+    </React.Fragment>
   )
 }
 
