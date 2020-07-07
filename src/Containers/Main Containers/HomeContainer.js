@@ -24,7 +24,9 @@ class HomeContainer extends React.Component {
 
     fetch('http://localhost:3000/api/v1/posts', fetchObj)
       .then(res => res.json())
-      .then(posts => this.props.getPosts(posts))
+      .then(posts => {
+        this.props.getPosts(posts);
+      })
   }
 
   render() {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Paper, FormControl, InputLabel, Input, Button } from '@material-ui/core';
 
 const handleNewComment = (e, props) => {
   e.preventDefault();
@@ -42,15 +41,13 @@ const handleNewComment = (e, props) => {
 
 const NewCommentForm = (props) => {
   return (
-    <form onSubmit={(e) => handleNewComment(e, props)}>
-      <Paper>
-        <FormControl fullWidth>
-          <InputLabel>Write Comment</InputLabel>
-          <Input name="content" placeholder='Write a comment!' />
-          <Button type="submit">Submit</Button>
-        </FormControl>
-      </Paper>
-    </form>
+    <div className='new-comment-form-container'>
+      <form className='new-comment-form' onSubmit={(e) => handleNewComment(e, props)}>
+        <div className='comment-form'>
+          <input name="content" placeholder='Write a comment...' />
+        </div>
+      </form>
+    </div>
   )
 }
 

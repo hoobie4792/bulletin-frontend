@@ -1,24 +1,22 @@
 import React from 'react';
 import Comment from '../../Components/Comments/Comment';
-import { Paper } from '@material-ui/core'
 
 const mapComments = (comments) => {
   return comments.map(comment =>
-    <Paper key={comment.id}>
+    <div className='comment' key={comment.id}>
       <Comment comment={comment} />
-    </Paper>
+    </div>
   )
 }
 
 const CommentsList = ({ comments }) => {
   return (
-    <React.Fragment>
+    <div className='comments-list'>
       {comments.length > 0 &&
         <React.Fragment>
-          <h4>Comments</h4>
           {mapComments(comments)}
         </React.Fragment>}
-    </React.Fragment>
+    </div>
   )
 }
 

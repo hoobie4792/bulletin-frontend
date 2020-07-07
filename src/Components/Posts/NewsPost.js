@@ -1,18 +1,22 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
 import PostFooter from './PostFooter';
+import formatDate from '../../Helpers/formatDate';
 
 const NewsPost = (props) => {
   return (
-    <Paper className='post' variant="outlined" style={{ background: '#253a4d', color: '#FDFFFF' }}>
-      <a className='post-title' href={props.post.news_url} target='_blank' rel="noopener noreferrer">{props.post.news_title}</a>
-      {props.post.news_image && <img className='news-story-img' src={props.post.news_image} alt='news-story' />}
-      <h4>Source: {props.post.news_source}</h4>
-      <h4>Content: {props.post.content}</h4>
-      <h4>Created at: {props.post.created_at}</h4>
-      <p>By: {props.post.news_author}</p>
+    <div className='news-story-post'>
+      <div className='news-story-content-container' onClick={() => window.open(props.post.news_url, '_blank')}>
+        <div className='post-title' >{props.post.news_title.split(' - ')[0]}</div>
+        {props.post.news_image && <img className='news-story-img' src={props.post.news_image} alt='news-story' />}
+        <div className='post-content'>{props.post.content}</div>
+        <div className='news-story-author'>Written By: {props.post.news_author}</div>
+      </div>
+      <div className='post-bottom'>
+        <div className='post-date'>{formatDate(props.post.created_at)}</div>
+        <div className='news-story-source'>{props.post.news_source}</div>
+      </div>
       {!props.isSharedPost && <PostFooter post={props.post} updatePosts={props.updatePosts} />}
-    </Paper>
+    </div>
   )
 }
 

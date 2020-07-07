@@ -43,20 +43,20 @@ const PostFooter = (props) => {
 
   return (
     <div className='post-footer'>
-      <Button className='post-footer-button' style={{ color: '#8798A5' }} onClick={() => likePost(props)}>
-        <Icon>
+      <Button style={{ color: '#8798A5' }} onClick={() => likePost(props)}>
+        <Icon className='post-icon'>
           <ThumbUpOutlined />
         </Icon>
       </Button>
-      <span>{props.post.likes_count}</span>
-      <Button className='post-footer-button' style={{ color: '#8798A5' }} onClick={() => setCommentDrawer(!commentDrawerOpen)}>
-        <Icon>
+      <span className='post-count'>{props.post.likes_count}</span>
+      <Button style={{ color: '#8798A5' }} onClick={() => setCommentDrawer(!commentDrawerOpen)}>
+        <Icon className='post-icon'>
           <ChatOutlined />
         </Icon>
       </Button>
       <span>{props.post.comments.length}</span>
-      <Button className='post-footer-button' style={{ color: '#8798A5', float: 'right' }} onClick={() => setModalOpen(true)}>
-        <Icon>
+      <Button style={{ color: '#8798A5', float: 'right' }} onClick={() => setModalOpen(true)}>
+        <Icon className='post-icon'>
           <ShareOutlined />
         </Icon>
       </Button>

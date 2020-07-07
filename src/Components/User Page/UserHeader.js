@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { Button } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
+import formatDate from '../../Helpers/formatDate';
 
 class UserHeader extends React.Component {
   state = {
@@ -32,8 +33,6 @@ class UserHeader extends React.Component {
       .then(usernameResponse => {
         if (usernameResponse.username) {
           this.setState({ ...this.state, username: usernameResponse.username });
-        } else {
-          alert(usernameResponse.message);
         }
       })
   }
@@ -73,17 +72,28 @@ class UserHeader extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <h2>Username: {this.props.user.username}</h2>
-        <h4>Bio: {this.props.user.bio}</h4>
-        <h5>Member since: {this.props.user.created_at}</h5>
-        <h5>Posts: {this.props.user.posts_count}</h5>
-        {this.state.username !== this.props.match.params.username && this.props.loggedIn &&
+      <div className='user-header'>
+        <div className='user-header-username'>{this.props.user.username}</div>
+        <div className='user-header-info'>
+          <Grid container>
+            <Grid item xs={6}>
+              <div className='user-header-bio'>Bio: {this.props.user.bio}</div>
+              <div className='user-header-member-since'>Member since: {formatDate(this.props.user.created_at).split(' - ')[1]}</div>
+            </Grid>
+            <Grid item xs={6}>
+              <div className='user-header-count'>Posts: {this.props.user.posts_count}</div>
+              <div className='user-header-count'>Following: {this.props.user.followers_count}</div>
+              <div className='user-header-count'>Followers: {this.props.user.following_count}</div>
+            </Grid>
+          </Grid>
+        </div>
+        {
+          this.state.username !== this.props.match.params.username && this.props.loggedIn &&
           <Button variant='contained' color='primary' onClick={() => this.handleFollow()}>
             {this.props.following ? 'Unfollow' : 'Follow'}
           </Button>
         }
-      </React.Fragment>
+      </div >
     );
   }
 }

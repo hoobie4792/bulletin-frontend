@@ -44,15 +44,14 @@ const handleTagSearch = (e, props) => {
 
 const TagSearchForm = (props) => {
   return (
-    <form onSubmit={(e) => handleTagSearch(e, props)}>
-      <Paper>
-        <FormControl fullWidth>
-          <InputLabel>Tag Search</InputLabel>
-          <Input name="tags" placeholder='Search for a tag!' />
-          <Button type="submit">Search</Button>
-        </FormControl>
-      </Paper>
-    </form>
+    <div className='search-tag-form-container'>
+      <form onSubmit={(e) => handleTagSearch(e, props)}>
+        <div className='tag-search-form'>
+          <input type='text' name='tags' placeholder='Search a tag...' />
+          <input type='submit' value='Search' />
+        </div>
+      </form>
+    </div>
   )
 }
 
