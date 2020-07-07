@@ -37,7 +37,7 @@ class UserHeader extends React.Component {
       })
   }
 
-  handleFollow = () => {
+  handleFollowRequest = () => {
     const token = localStorage.getItem('auth_token');
 
     if (!token) {
@@ -45,7 +45,7 @@ class UserHeader extends React.Component {
     }
 
     const followObj = {
-      follow: { username: this.props.match.params.username }
+      follow_request: { followed: this.props.match.params.username }
     }
 
     const fetchObj = {
@@ -57,14 +57,13 @@ class UserHeader extends React.Component {
       body: JSON.stringify(followObj)
     }
 
-    fetch('http://localhost:3000/api/v1/follows', fetchObj)
+    fetch('http://localhost:3000/api/v1/follow_requests', fetchObj)
       .then(res => res.json())
       .then(followResponse => {
         if (followResponse.message) {
           alert(followResponse.message);
         } else {
-          this.props.updateFollow(followResponse);
-          this.props.history.go();
+          this.props.updateFollow(followResponse.result);
         }
       })
       .catch((response) => alert('Something went wrong'))
@@ -89,8 +88,8 @@ class UserHeader extends React.Component {
         </div>
         {
           this.state.username !== this.props.match.params.username && this.props.loggedIn &&
-          <Button variant='contained' color='primary' onClick={() => this.handleFollow()}>
-            {this.props.following ? 'Unfollow' : 'Follow'}
+          <Button variant='contained' color='primary' onClick={() => this.handleFollowRequest()}>
+            {this.props.following}
           </Button>
         }
       </div >
