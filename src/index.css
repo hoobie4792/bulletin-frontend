@@ -73,7 +73,7 @@ body::-webkit-scrollbar {
 }
 
 .user-post-content {
-  padding: 25px;
+  padding: 35px 25px 0px 25px;
   font-size: 18pt;
 }
 
@@ -160,8 +160,13 @@ body::-webkit-scrollbar {
   text-align: right;
 }
 
+.news-story-header {
+  margin-bottom: 30px;
+}
+
 .news-story-source {
-  float: right;
+  font-size: 10pt;
+  float: left;
 }
 
 .comments-container {
