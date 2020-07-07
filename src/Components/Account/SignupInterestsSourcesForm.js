@@ -136,7 +136,6 @@ class SignupInterestsSourcesForm extends React.Component {
           this.waitFetch();
         }
       })
-      .catch((error) => alert(`Something went wrong: ${error}`));
   }
 
   submitInterests = (token) => {
@@ -165,7 +164,6 @@ class SignupInterestsSourcesForm extends React.Component {
           this.waitFetch();
         }
       })
-      .catch((error) => alert(`Something went wrong: ${error}`));
   }
 
   waitFetch = () => {
