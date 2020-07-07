@@ -101,12 +101,8 @@ class InterestsNewsSourcesMenu extends React.Component {
                 {this.mapInterests()}
               </List>
             </Collapse>
-<<<<<<< HEAD
           </React.Fragment>
         }
-=======
-          </React.Fragment>}
->>>>>>> e23c57a5e9e14e10a2e3d90a013959a06568404c
         {this.props.newsSources.length > 0 &&
           <React.Fragment>
             <ListItem button onClick={this.handleNewsSourcesClick}>
@@ -118,12 +114,8 @@ class InterestsNewsSourcesMenu extends React.Component {
                 {this.mapNewsSources()}
               </List>
             </Collapse>
-<<<<<<< HEAD
           </React.Fragment>
         }
-=======
-          </React.Fragment>}
->>>>>>> e23c57a5e9e14e10a2e3d90a013959a06568404c
       </List>
     )
   }
