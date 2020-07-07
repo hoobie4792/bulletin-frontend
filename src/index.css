@@ -200,12 +200,12 @@ body::-webkit-scrollbar {
 }
 
 .bulletin-form {
-  padding-bottom: 100px;
+  padding-bottom: 70px;
 }
 
 .bulletin-form > input[type=text] {
   display: block;
-  margin: auto;
+  margin: auto auto 5px auto;
   padding: 8px;
   width: 97%;
   background: #203343;
@@ -224,6 +224,20 @@ body::-webkit-scrollbar {
   border: 2px solid #253a4d;
   border-radius: 20px;
   float: right;
+}
+
+.bulletin-form > label {
+  padding-left: 5px;
+}
+
+.update-account-container {
+  padding-top: 30px;
+  background: #253a4d;
+  border-radius: 20px;
+}
+.update-account-form-container {
+  margin: auto;
+  width: 80%;
 }
 
 .user-header {
@@ -261,4 +275,8 @@ body::-webkit-scrollbar {
 .search-users-list {
   background: #253a4d;
   border-radius: 10px;
+}
+
+.update-account-form {
+  padding-bottom: 100px;
 }
