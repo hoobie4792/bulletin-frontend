@@ -90,24 +90,32 @@ class InterestsNewsSourcesMenu extends React.Component {
   render() {
     return (
       <List>
-        <ListItem button onClick={this.handleInterestsClick}>
-          <ListItemText primary="Interests" />
-          {this.state.interestsOpen ? <ExpandLess /> : <ExpandMore />}
-        </ListItem>
-        <Collapse in={this.state.interestsOpen} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {this.mapInterests()}
-          </List>
-        </Collapse>
-        <ListItem button onClick={this.handleNewsSourcesClick}>
-          <ListItemText primary="News Sources" />
-          {this.state.newsSourcesOpen ? <ExpandLess /> : <ExpandMore />}
-        </ListItem>
-        <Collapse in={this.state.newsSourcesOpen} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {this.mapNewsSources()}
-          </List>
-        </Collapse>
+        {this.props.interests.length > 0 &&
+          <React.Fragment>
+            <ListItem button onClick={this.handleInterestsClick}>
+              <ListItemText primary="Interests" />
+              {this.state.interestsOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={this.state.interestsOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {this.mapInterests()}
+              </List>
+            </Collapse>
+          </React.Fragment>
+        }
+        {this.props.newsSources.length > 0 &&
+          <React.Fragment>
+            <ListItem button onClick={this.handleNewsSourcesClick}>
+              <ListItemText primary="News Sources" />
+              {this.state.newsSourcesOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={this.state.newsSourcesOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {this.mapNewsSources()}
+              </List>
+            </Collapse>
+          </React.Fragment>
+        }
       </List>
     )
   }
