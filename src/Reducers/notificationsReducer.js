@@ -7,6 +7,11 @@ export default (state = {
         ...state,
         notifications: action.notifications
       }
+    case 'DELETE_NOTIFICATION':
+      return {
+        ...state,
+        notifications: [...state.notifications].filter(notification => notification.content !== action.notification_content)
+      }
     default:
       return {
         ...state

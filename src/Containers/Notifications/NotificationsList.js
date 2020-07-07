@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Notification from '../../Components/Notifications/Notification';
+import GeneralNotification from '../../Components/Notifications/GeneralNotification';
+import FollowRequestNotification from '../../Components/Notifications/FollowRequestNofication';
 
 class NotificationsList extends React.Component {
   fetchNotifications = () => {
@@ -32,14 +33,34 @@ class NotificationsList extends React.Component {
   }
 
   mapNotifications = () => {
-    return this.props.notifications.map(notification =>
-      <Notification
-        key={notification.id}
-        content={notification.content}
-        created_at={notification.created_at}
-        id={notification.id}
-        notification_type={notification.notification_type}
-      />)
+    return this.props.notifications.map(notification => {
+      switch (notification.notification_type) {
+        case 'general':
+          return <GeneralNotification
+            key={notification.id}
+            content={notification.content}
+            created_at={notification.created_at}
+            id={notification.id}
+            notification_type={notification.notification_type}
+          />
+        case 'follow request':
+          return <FollowRequestNotification
+            key={notification.id}
+            content={notification.content}
+            created_at={notification.created_at}
+            id={notification.id}
+            notification_type={notification.notification_type}
+          />
+        default:
+          return <GeneralNotification
+            key={notification.id}
+            content={notification.content}
+            created_at={notification.created_at}
+            id={notification.id}
+            notification_type={notification.notification_type}
+          />
+      }
+    })
   }
 
   componentDidMount() {
