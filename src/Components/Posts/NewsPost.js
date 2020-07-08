@@ -15,7 +15,7 @@ const NewsPost = (props) => {
         <div className='post-content'>{props.post.content}</div>
         {props.post.news_author && <div className='news-story-author'>Written By: {props.post.news_author}</div>}
       </div>
-      {props.post.reason && <div className='news-story-post-reason'>{props.post.reason}</div>}
+      {props.post.reason && <div className='news-story-post-reason'>Because you follow {props.post.reason}</div>}
       {!props.isSharedPost && <PostFooter post={props.post} updatePosts={props.updatePosts} />}
     </div>
   )
