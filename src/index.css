@@ -40,12 +40,6 @@ body::-webkit-scrollbar {
   border-radius: 4px;
 }
 
-.news-story-post-reason {
-  margin: 5px 5px 20px 0px;
-  text-align:right;
-  font-size: 10pt;
-}
-
 .user-post {
   margin: 0px 0px 50px 0px;
   padding: 5px 20px;
