@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { Paper, FormControl, TextField, Button } from '@material-ui/core';
 
 const handleLogin = (e, props) => {
   e.preventDefault();
@@ -47,15 +46,16 @@ const handleLogin = (e, props) => {
 
 const LoginForm = (props) => {
   return (
-    <form onSubmit={(e) => handleLogin(e, props)}>
-      <Paper>
-        <FormControl>
-          <TextField name="username_email" label="Username / Email" />
-          <TextField name="password" type="password" autoComplete="on" label="Password" />
-          <Button type="submit">Submit</Button>
-        </FormControl>
-      </Paper>
-    </form>
+    <div className='account-form-container'>
+      <h2>Login</h2>
+      <form className='account-form' onSubmit={(e) => handleLogin(e, props)}>
+        <div className='account-label'>Username / Email:</div>
+        <input type='text' name="username_email" />
+        <div className='account-label'>Password:</div>
+        <input type='password' name="password" autoComplete="on" />
+        <input type="submit" value='Login' />
+      </form>
+    </div>
   )
 }
 

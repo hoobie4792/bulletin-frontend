@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Paper, FormControl, TextField, FormControlLabel, Checkbox, Button } from '@material-ui/core';
+import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 const handleSignup = (e, props) => {
   e.preventDefault();
@@ -49,22 +49,26 @@ const handleSignup = (e, props) => {
 
 const SignupAccountForm = (props) => {
   return (
-    <form onSubmit={(e) => handleSignup(e, props)}>
-      <Paper>
-        <FormControl>
-          <TextField name="email" label="Email" />
-          <TextField name="username" label="Username" />
-          <TextField name="bio" label="Bio" />
-          <TextField name="password" type="password" autoComplete="on" label="Password" />
-          <TextField name="passwordConfirmation" type="password" autoComplete="on" label="Password Confirmation" />
-          <FormControlLabel
-            control={<Checkbox name="isPrivate" color="primary" />}
-            label="Private Account"
-          />
-          <Button type="submit">Submit</Button>
-        </FormControl>
-      </Paper>
-    </form>
+    <div className='account-form-container'>
+      <h2>Signup</h2>
+      <form className='account-form' onSubmit={(e) => handleSignup(e, props)}>
+        <div className='account-label'>Email:</div>
+        <input type='text' name="email" />
+        <div className='account-label'>Username:</div>
+        <input type='text' name="username" />
+        <div className='account-label'>Bio:</div>
+        <input type='text' name="bio" />
+        <div className='account-label'>Password:</div>
+        <input type='password' name="password" autoComplete="on" />
+        <div className='account-label'>Password Confirmation:</div>
+        <input type='password' name="passwordConfirmation" autoComplete="on" />
+        <FormControlLabel
+          control={<Checkbox style={{ color: '#3d6081' }} name="isPrivate" color="primary" />}
+          label="Private Account"
+        />
+        <input type="submit" value='Submit' />
+      </form>
+    </div>
   )
 }
 

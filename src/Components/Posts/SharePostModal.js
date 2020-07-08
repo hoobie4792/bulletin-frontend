@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Modal, Paper, FormControl, InputLabel, Input, Button } from '@material-ui/core';
+import { Modal } from '@material-ui/core';
 import NewsPost from './NewsPost';
 import RegularUserPost from './RegularUserPost';
 
@@ -60,14 +60,9 @@ const SharePostModal = (props) => {
       onClose={props.handleClose}
     >
       <div className='bulletin-modal'>
-        <form onSubmit={(e) => sharePost(e, props)}>
-          <Paper>
-            <FormControl fullWidth>
-              <InputLabel>New Post</InputLabel>
-              <Input name="content" placeholder='Write a new post!' />
-              <Button type="submit">Share</Button>
-            </FormControl>
-          </Paper>
+        <form className='bulletin-form-tertiary' onSubmit={(e) => sharePost(e, props)}>
+          <input type='text' name="content" placeholder='Write about this post...' />
+          <input className='share-post-button' type="submit" value='Share' />
         </form>
         {renderSharedPost(props)}
       </div>
