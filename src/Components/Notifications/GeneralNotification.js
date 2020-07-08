@@ -1,13 +1,12 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import formatDate from '../../Helpers/formatDate';
 
 const Notification = ({ content, created_at, notification_type }) => {
   return (
-    <Paper>
-      <h4>Content: {content}</h4>
-      <h4>Created at: {created_at}</h4>
-      <h4>Type: {notification_type}</h4>
-    </Paper>
+    <div className='notification-container'>
+      <div className='notification-date'>{formatDate(created_at)}</div>
+      <div className='notification-content'>{content}</div>
+    </div>
   )
 }
 

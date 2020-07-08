@@ -17,6 +17,7 @@ const SharedUserPost = (props) => {
     <div className='user-post'>
       <div className='user-post-content-container'>
         <div className='user-post-username' onClick={() => props.history.push(`/profile/${props.post.user.username}`)}>{props.post.user.username}</div>
+        <span className='user-post-shared'>shared...</span>
         <div className='post-date'>{formatDate(props.post.created_at)}</div>
         <div className='user-post-content'>{props.post.content}</div>
       </div>

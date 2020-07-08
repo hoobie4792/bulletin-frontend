@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Paper } from '@material-ui/core';
 import ConversationsList from '../Conversations/ConversationsList';
 import NewConversationFooter from '../../Components/Conversations/NewConversationFooter';
 import { Widget, deleteMessages, addResponseMessage, addUserMessage, markAllAsRead, toggleWidget } from 'react-chat-widget'
@@ -106,7 +105,7 @@ class ConversationsContainer extends React.Component {
 
   render() {
     return (
-      <Paper>
+      <div className='conversations-container'>
         <ConversationsList
           conversations={this.props.conversations}
           loadConversation={this.loadConversation}
@@ -129,7 +128,7 @@ class ConversationsContainer extends React.Component {
           launcher={handleToggle => this.getCustomLauncher(handleToggle, this.props.openConversation, this.props.setOpenConversation)}
           senderPlaceHolder='Send a message...'
         />
-      </Paper>
+      </div>
     );
   }
 }

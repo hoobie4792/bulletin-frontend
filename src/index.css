@@ -72,6 +72,11 @@ body::-webkit-scrollbar {
   float: left;
 }
 
+.user-post-shared {
+  margin-left: 8px;
+  font-size: 11pt;
+}
+
 .user-post-content {
   padding: 35px 25px 0px 25px;
   font-size: 18pt;
@@ -98,6 +103,7 @@ body::-webkit-scrollbar {
   margin-top: 10px;
   border-radius: 5px;
   background: #97e4f3;
+  border: none;
   width: 30%;
 }
 
@@ -222,7 +228,7 @@ body::-webkit-scrollbar {
   width: 97%;
   background: #253a4d;
   color: #FDFFFF;
-  border: 2px solid #192835;
+  border: 1px solid #192835;
   border-radius: 20px;
 }
 
@@ -292,4 +298,146 @@ body::-webkit-scrollbar {
 
 .update-account-form {
   padding-bottom: 100px;
+}
+
+.conversations-container {
+  padding: 10px 20px;
+  background: #253a4d;
+  border-radius: 4px;
+}
+
+.conversation-container {
+  border-bottom: 1px solid #3d6081;
+  padding: 15px 0px;
+}
+
+.conversation-participants {
+  padding-bottom: 5px;
+  font-size: 14pt;
+  text-decoration: underline;
+}
+
+.conversation-last-message {
+  font-size: 10pt;
+}
+
+.new-conversation-button {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 20px 8px 20px;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.bulletin-form-secondary {
+  padding-bottom: 0px;
+}
+
+.bulletin-form-secondary > input[type=text] {
+  display: block;
+  margin: auto auto 5px auto;
+  padding: 8px;
+  width: 97%;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+}
+
+.bulletin-form-secondary > input[type=submit] {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 20px 8px 20px;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  float: right;
+}
+
+.bulletin-form-secondary > label {
+  padding-left: 5px;
+}
+
+.new-participants-container {
+  background: #192835;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 4px;
+}
+
+.new-participants-title {
+  font-size: 14pt;
+  text-decoration: underline;
+}
+
+.new-participants {
+  margin-top: 5px;
+  font-size: 12pt;
+}
+
+.start-conversation-form {
+  text-align: center;
+}
+
+.start-conversation-button {
+  width: 100%;
+  display: block;
+  margin: 40px auto;
+  padding: 8px 20px 8px 20px;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.notifications-container {
+  padding: 10px 20px;
+  background: #253a4d;
+  border-radius: 4px;
+}
+
+.notification-container {
+  border-bottom: 1px solid #3d6081;
+  padding: 20px 0px;
+}
+
+.notification-date {
+  text-decoration: underline;
+  margin-bottom: 5px;
+  font-size: 8pt;
+}
+
+.notification-content {
+  font-size: 14pt;
+}
+
+.follow-accept-button {
+  margin: 10px 10px 0px 0px;
+  padding: 8px 20px 8px 20px;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.follow-deny-button {
+  margin: 10px 0px 0px 10px;
+  padding: 8px 20px 8px 20px;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }

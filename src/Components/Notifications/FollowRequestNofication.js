@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Paper } from '@material-ui/core';
+import formatDate from '../../Helpers/formatDate';
 
 const handleAccept = (props) => {
   const token = localStorage.getItem('auth_token');
@@ -72,13 +72,12 @@ const handleDeny = (props) => {
 
 const FollowRequestNotification = (props) => {
   return (
-    <Paper>
-      <h4>Content: {props.content}</h4>
-      <h4>Created at: {props.created_at}</h4>
-      <h4>Type: {props.notification_type}</h4>
-      <button onClick={() => handleAccept(props)}>Accept</button>
-      <button onClick={() => handleDeny(props)}>Deny</button>
-    </Paper>
+    <div className='notification-container'>
+      <div className='notification-date'>{formatDate(props.created_at)}</div>
+      <div className='notification-content'>{props.content}</div>
+      <button className='follow-accept-button' onClick={() => handleAccept(props)}>Accept</button>
+      <button className='follow-deny-button' onClick={() => handleDeny(props)}>Deny</button>
+    </div>
   )
 }
 

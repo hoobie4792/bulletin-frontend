@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Paper, FormControl, InputLabel, Input, Button, List, ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@material-ui/core';
 
 const handleSearch = (e, setSearchedParticipants) => {
   e.preventDefault();
@@ -74,6 +74,7 @@ const handleNewConversation = (e, participants, props) => {
       } else {
         props.addConversation(conversationResponse);
         props.loadConversation(conversationResponse, props.username, props.openConversation, props.setOpenConversation);
+        props.setNewConversationDrawer(false);
       }
     })
     .catch(error => alert(`Something went wrong - ${error}`));
@@ -86,28 +87,22 @@ const NewConversationForm = (props) => {
   return (
     <div className='new-conversation-form'>
       <div className='new-conversation-search-user-container'>
-        <Paper>
-          <form id='new-conversation-search-user-form' onSubmit={(e) => handleSearch(e, setSearchedParticipants)}>
-            <FormControl fullWidth>
-              <InputLabel>Search Users</InputLabel>
-              <Input name="username" placeholder='Search for a user!' />
-              <Button type="submit">Search</Button>
-            </FormControl>
-          </form>
-          <List>
-            {mapSearchedParticipants(searchedParticipants, setSearchedParticipants, participants, setParticipants)}
-          </List>
-        </Paper>
+        <form className='bulletin-form-secondary' onSubmit={(e) => handleSearch(e, setSearchedParticipants)}>
+          <input type='text' name='username' placeholder='Search to add a user to the conversation...' />
+          <input type="submit" value='Search' />
+        </form>
+        <List>
+          {mapSearchedParticipants(searchedParticipants, setSearchedParticipants, participants, setParticipants)}
+        </List>
       </div>
-      <hr />
-      <h3>Participants</h3>
-      <p>{participants.join(', ')}</p>
-      <form onSubmit={(e) => handleNewConversation(e, participants, props)}>
-        <Paper>
-          <FormControl fullWidth>
-            <Button type="submit">Start Conversation</Button>
-          </FormControl>
-        </Paper>
+      {participants.length > 0 &&
+        <div className='new-participants-container'>
+          <div className='new-participants-title'>Participants</div>
+          <div className='new-participants'>{participants.join(', ')}</div>
+        </div>
+      }
+      <form className='start-conversation-form' onSubmit={(e) => handleNewConversation(e, participants, props)}>
+        <input className='start-conversation-button' type="submit" value='Start conversation' />
       </form>
     </div>
   )
