@@ -13,6 +13,11 @@ const handleNewPost = (e, props) => {
   const content = e.target.content.value;
   const tags = content.split(' ').filter(word => word[0] === '#').map(tag => tag.slice(1).toLowerCase());
 
+  if (!content) {
+    alert('Post must contain content');
+    return;
+  }
+
   const postObj = {
     post: {
       content: content,
