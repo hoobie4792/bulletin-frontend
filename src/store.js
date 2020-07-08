@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux';
+import badgesReducer from './Reducers/badgesReducer';
 import loggedInReducer from './Reducers/loggedInReducer';
 import conversationsReducer from './Reducers/conversationsReducer';
 import interestsReducer from './Reducers/interestsReducer';
@@ -11,6 +12,7 @@ import signupReducer from './Reducers/signupReducer';
 import userReducer from './Reducers/userReducer';
 
 const rootReducer = combineReducers({
+  badgesReducer: badgesReducer,
   loggedInReducer: loggedInReducer,
   conversationsReducer: conversationsReducer,
   interestsReducer: interestsReducer,

@@ -4,6 +4,10 @@ import GeneralNotification from '../../Components/Notifications/GeneralNotificat
 import FollowRequestNotification from '../../Components/Notifications/FollowRequestNofication';
 
 class NotificationsContainer extends React.Component {
+  componentDidMount() {
+    this.fetchNotifications()
+  }
+
   fetchNotifications = () => {
     const token = localStorage.getItem('auth_token');
 
@@ -26,7 +30,8 @@ class NotificationsContainer extends React.Component {
         if (notifications.message) {
           alert(notifications.message)
         } else {
-          this.props.getNotifications(notifications)
+          this.props.getNotifications(notifications);
+          this.props.setNotificationsRead();
         }
       })
       .catch(() => 'Something went wrong');
@@ -63,10 +68,6 @@ class NotificationsContainer extends React.Component {
     })
   }
 
-  componentDidMount() {
-    this.fetchNotifications()
-  }
-
   render() {
     return (
       <div className='notifications-container'>
@@ -84,7 +85,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getNotifications: (notifications) => dispatch({ type: 'GET_NOTIFICATIONS', notifications: notifications })
+    getNotifications: (notifications) => dispatch({ type: 'GET_NOTIFICATIONS', notifications: notifications }),
+    setNotificationsRead: () => dispatch({ type: 'SET_NOTIFICATIONS_READ' })
   }
 }
 

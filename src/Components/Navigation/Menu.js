@@ -13,60 +13,99 @@ import {
   PersonOutlined
 } from '@material-ui/icons';
 
-const handleClick = (e, props) => {
-  props.history.push(`/${e.target.textContent.toLowerCase()}`)
-}
+class Menu extends React.Component {
+  componentDidMount() {
+    this.getBadgeCounts();
+  }
 
-const Menu = (props) => {
+  getBadgeCounts = () => {
+    const token = localStorage.getItem('auth_token');
 
-  return (
-    <div className='menu-container'>
-      <List className='hidden-scroll' component="nav" style={{ position: 'fixed', width: '20%', maxHeight: '80vh', overflowY: 'scroll' }}>
-        <ListItem button onClick={e => handleClick(e, props)}>
-          <ListItemIcon>
-            <HomeOutlined style={{ color: '#FDFFFF' }} />
-          </ListItemIcon>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button onClick={e => handleClick(e, props)}>
-          <ListItemIcon>
-            <LocalOfferOutlined style={{ color: '#FDFFFF' }} />
-          </ListItemIcon>
-          <ListItemText primary="Tags" />
-        </ListItem>
-        {props.loggedIn && (
-          <React.Fragment>
-            <ListItem button onClick={e => handleClick(e, props)}>
-              <ListItemIcon>
-                <MessageOutlined style={{ color: '#FDFFFF' }} />
-              </ListItemIcon>
-              <ListItemText primary="Messages" />
-            </ListItem>
-            <ListItem button onClick={e => handleClick(e, props)}>
-              <ListItemIcon>
-                <NotificationsOutlined style={{ color: '#FDFFFF' }} />
-              </ListItemIcon>
-              <ListItemText primary="Notifications" />
-            </ListItem>
-            <ListItem button onClick={e => handleClick(e, props)}>
-              <ListItemIcon>
-                <PersonOutlined style={{ color: '#FDFFFF' }} />
-              </ListItemIcon>
-              <ListItemText primary="Profile" />
-            </ListItem>
-            <hr />
-            <InterestsNewsSourcesMenu />
-          </React.Fragment>
-        )}
-      </List>
-    </div>
-  );
+    if (!token) {
+      return;
+    }
+
+    const fetchObj = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Auth-Token': token
+      }
+    }
+
+    fetch('http://localhost:3000/api/v1/get-badges', fetchObj)
+      .then(res => res.json())
+      .then(badgesResponse => {
+        if (!badgesResponse.message) {
+          this.props.getBadges(badgesResponse.notifications, badgesResponse.messages)
+        }
+      })
+  }
+
+  handleClick = (e) => {
+    this.props.history.push(`/${e.target.textContent.toLowerCase()}`)
+  }
+
+  render() {
+    return (
+      <div className='menu-container'>
+        <List className='hidden-scroll' component="nav" style={{ position: 'fixed', width: '20%', maxHeight: '80vh', overflowY: 'scroll' }}>
+          <ListItem button onClick={e => this.handleClick(e)}>
+            <ListItemIcon>
+              <HomeOutlined style={{ color: '#FDFFFF' }} />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem button onClick={e => this.handleClick(e)}>
+            <ListItemIcon>
+              <LocalOfferOutlined style={{ color: '#FDFFFF' }} />
+            </ListItemIcon>
+            <ListItemText primary="Tags" />
+          </ListItem>
+          {this.props.loggedIn && (
+            <React.Fragment>
+              <ListItem button onClick={e => this.handleClick(e)}>
+                <ListItemIcon>
+                  <MessageOutlined style={{ color: '#FDFFFF' }} />
+                </ListItemIcon>
+                <ListItemText primary="Messages" />
+                {this.props.messagesCount > 0 && <div className='notification-badge'>{this.props.messagesCount}</div>}
+              </ListItem>
+              <ListItem button onClick={e => this.handleClick(e)}>
+                <ListItemIcon>
+                  <NotificationsOutlined style={{ color: '#FDFFFF' }} />
+                </ListItemIcon>
+                <ListItemText primary="Notifications" />
+                {this.props.notificationsCount > 0 && <div className='notification-badge'>{this.props.notificationsCount}</div>}
+              </ListItem>
+              <ListItem button onClick={e => this.handleClick(e)}>
+                <ListItemIcon>
+                  <PersonOutlined style={{ color: '#FDFFFF' }} />
+                </ListItemIcon>
+                <ListItemText primary="Profile" />
+              </ListItem>
+              <hr />
+              <InterestsNewsSourcesMenu />
+            </React.Fragment>
+          )}
+        </List>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.loggedInReducer.loggedIn
+    loggedIn: state.loggedInReducer.loggedIn,
+    notificationsCount: state.badgesReducer.notifications,
+    messagesCount: state.badgesReducer.messages
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Menu));
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getBadges: (notifications, messages) => dispatch({ type: 'GET_BADGES', notifications: notifications, messages: messages })
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu));
