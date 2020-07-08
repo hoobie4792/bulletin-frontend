@@ -54,7 +54,6 @@ class ConversationsContainer extends React.Component {
     markAllAsRead();
     this.setMessagesRead(conversation);
     if (!openConversation) {
-      setOpenConversation(conversation);
       toggleWidget();
     }
     setOpenConversation(conversation);

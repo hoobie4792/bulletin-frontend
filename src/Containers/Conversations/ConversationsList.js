@@ -15,7 +15,11 @@ const mapConversations = (props) => {
 const ConversationsList = (props) => {
   return (
     <React.Fragment>
-      {mapConversations(props)}
+      {props.conversations.length > 0 ?
+        <React.Fragment>{mapConversations(props)}</React.Fragment>
+        :
+        <div className='no-notifications-messages'>Looks like you don't have any messages</div>
+      }
     </React.Fragment>
   );
 };

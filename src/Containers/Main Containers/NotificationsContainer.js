@@ -71,7 +71,11 @@ class NotificationsContainer extends React.Component {
   render() {
     return (
       <div className='notifications-container'>
-        {this.mapNotifications()}
+        {this.props.notifications.length > 0 ?
+          <React.Fragment>{this.mapNotifications()}</React.Fragment>
+          :
+          <div className='no-notifications-messages'>Looks like you don't have any notifications</div>
+        }
       </div>
     )
   }
