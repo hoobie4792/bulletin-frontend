@@ -6,7 +6,8 @@ const mapParticipants = (participants) => {
 
 const getLastMessage = (messages) => {
   if (messages.length > 0) {
-    return messages[messages.length - 1].content;
+    const message = messages[messages.length - 1];
+    return `${message.user.username}: ${message.content}`;
   } else {
     return '';
   }
