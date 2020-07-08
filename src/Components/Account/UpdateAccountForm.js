@@ -99,17 +99,13 @@ class UpdateAccountForm extends React.Component {
 
   render() {
     return (
-      <div className='update-account-container'>
-        <div className='update-account-form-container'>
-          <form className='bulletin-form' onSubmit={this.handleSubmit}>
-            <label>Update Username:</label>
-            <input type='text' name='username' value={this.state.username} onChange={this.handleChange} />
-            <label>Update Bio:</label>
-            <input type='text' name='bio' value={this.state.bio} onChange={this.handleChange} />
-            <input type='submit' value="Submit" />
-          </form>
-        </div>
-      </div>
+      <form className='account-form' onSubmit={this.handleSubmit}>
+        <label>Username:</label>
+        <input type='text' name='username' value={this.state.username} onChange={this.handleChange} />
+        <label>Bio:</label>
+        <input type='text' name='bio' value={this.state.bio} onChange={this.handleChange} />
+        <input type='submit' value="Update Account Info" />
+      </form>
     )
   }
 }

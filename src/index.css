@@ -115,7 +115,7 @@ body::-webkit-scrollbar {
 
 .bulletin-modal {
   position: 'absolute';
-  width: 400px;
+  width: 25%;
   margin: 50vh auto 0;
   transform: translateY(-50%);
   background-color: #192835;
@@ -434,6 +434,145 @@ body::-webkit-scrollbar {
 .follow-deny-button {
   margin: 10px 0px 0px 10px;
   padding: 8px 20px 8px 20px;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.bulletin-form-tertiary {
+  padding-bottom: 0px;
+}
+
+.bulletin-form-tertiary > input[type=text] {
+  display: block;
+  margin: auto auto 5px auto;
+  padding: 8px;
+  width: 97%;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+}
+
+.bulletin-form-tertiary > input[type=password] {
+  display: block;
+  margin: auto auto 5px auto;
+  padding: 8px;
+  width: 97%;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+}
+
+.bulletin-form-tertiary > input[type=submit] {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 20px 8px 20px;
+  width: 50%;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.account-form-container > h2 {
+  text-align: center;
+}
+
+.account-form {
+  padding-bottom: 0px;
+  background: #253a4d;
+  padding: 50px 100px 50px 100px;
+  border-radius: 4px;
+}
+
+.account-label {
+  margin-top: 20px;
+}
+
+.account-form > input[type=text] {
+  display: block;
+  margin: 5px auto 5px auto;
+  padding: 8px;
+  width: 97%;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+}
+
+.account-form > input[type=password] {
+  display: block;
+  margin: 5px auto 5px auto;
+  padding: 8px;
+  width: 97%;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+}
+
+.account-form > input[type=submit] {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 20px 8px 20px;
+  width: 50%;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.signup-interest-source-grid-container {
+  margin: 20px;
+  border: 2px solid #192835;
+  border-radius: 4px;
+}
+
+.signup-sources-interests-form {
+  margin-top: 40px;
+  background: #253a4d;
+  border-radius: 4px;
+}
+
+.signup-sources-interests-label {
+  font-size: 16pt;
+  padding: 15px 0px 0px 15px;
+}
+
+.signup-source-interest-image {
+  width: 100px;
+  height: auto;
+  padding: 40px;
+  background: #192835;
+  margin: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signup-source-interest-label {
+  text-align: center;
+  font-size: 12pt;
+  margin-bottom: 20px;
+}
+
+.signup-sources-interests-submit-container {
+  padding: 30px 0px 10px 0px;
+}
+
+.signup-sources-interests-submit-container > input[type=submit] {
+  display: block;
+  margin: 0px auto;
+  padding: 8px 20px 8px 20px;
+  width: 50%;
   text-align: center;
   background: #3d6081;
   color: #FDFFFF;

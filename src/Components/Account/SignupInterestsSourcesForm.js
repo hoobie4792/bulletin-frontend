@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { Paper, FormControl, Button } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import SignupSource from './SignupSource';
 import SignupInterest from './SignupInterest';
 
@@ -76,9 +76,7 @@ class SignupInterestsSourcesForm extends React.Component {
     />)
   }
 
-  handleSourceChange = (e) => {
-    e.preventDefault();
-    const id = parseInt(e.target.name);
+  handleSourceChange = (id) => {
     if (this.props.selectedSources.includes(id)) {
       this.props.removeSource(id);
     } else {
@@ -86,9 +84,7 @@ class SignupInterestsSourcesForm extends React.Component {
     }
   }
 
-  handleInterestChange = (e) => {
-    e.preventDefault();
-    const id = parseInt(e.target.name);
+  handleInterestChange = (id) => {
     if (this.props.selectedInterests.includes(id)) {
       this.props.removeInterest(id);
     } else {
@@ -175,14 +171,32 @@ class SignupInterestsSourcesForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={(e) => this.handleSubmit(e, this.props)}>
-        <Paper>
-          <FormControl>
+      <form className='signup-sources-interests-form' onSubmit={(e) => this.handleSubmit(e, this.props)}>
+        <div className='signup-sources-interests-submit-container'>
+          <input className='signup-sources-interests-submit' type='submit' value='Update Sources and Interests' />
+        </div>
+        <div className='signup-sources-interests-label'>Sources</div>
+        <div className='signup-interest-source-grid-container'>
+          <Grid
+            container
+            className='hidden-scroll'
+            style={{ maxHeight: '600px', overflowY: 'scroll' }}
+            justify="center"
+          >
             {this.mapSources()}
+          </Grid>
+        </div>
+        <div className='signup-sources-interests-label'>Interests</div>
+        <div className='signup-interest-source-grid-container'>
+          <Grid
+            container
+            className='hidden-scroll'
+            style={{ maxHeight: '600px', overflowY: 'scroll' }}
+            justify="center"
+          >
             {this.mapInterests()}
-            <Button type="submit">Submit</Button>
-          </FormControl>
-        </Paper>
+          </Grid>
+        </div>
       </form>
     )
   }
