@@ -88,9 +88,9 @@ class UserHeader extends React.Component {
         </div>
         {
           this.state.username !== this.props.match.params.username && this.props.loggedIn &&
-          <Button variant='contained' color='primary' onClick={() => this.handleFollowRequest()}>
+          <button className='follow-button' onClick={() => this.handleFollowRequest()}>
             {this.props.following}
-          </Button>
+          </button>
         }
       </div >
     );
