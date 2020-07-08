@@ -37,6 +37,17 @@ export default (
         ...state,
         conversations: [...state.conversations, action.conversation]
       }
+    case 'UPDATE_CONVERSATION':
+      return {
+        ...state,
+        conversations: [...state.conversations.map(conversation => {
+          if (conversation.id === action.conversation.id) {
+            return action.conversation;
+          } else {
+            return conversation;
+          }
+        })]
+      }
     default:
       return state;
   }

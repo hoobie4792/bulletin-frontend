@@ -52,10 +52,37 @@ class ConversationsContainer extends React.Component {
       }
     })
     markAllAsRead();
+    this.setMessagesRead(conversation);
     if (!openConversation) {
       setOpenConversation(conversation);
       toggleWidget();
     }
+  }
+
+  setMessagesRead = (conversation) => {
+    const token = localStorage.getItem('auth_token');
+
+    if (!token) {
+      alert('Must be logged in to update messages');
+      return;
+    }
+
+    const fetchObj = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Auth-Token': token
+      }
+    }
+
+    fetch(`http://localhost:3000/api/v1/conversations/${conversation.id}/set-messages-read`, fetchObj)
+      .then(res => res.json())
+      .then(conversationResponse => {
+        if (!conversationResponse.message) {
+          this.props.udpateConversation(conversationResponse);
+          this.props.setMessagesBadgeCount(this.props.messagesCount - conversation.unread_messages_count)
+        }
+      })
   }
 
   getCustomLauncher = (handleToggle, openConversation, setOpenConversation) => {
@@ -119,15 +146,17 @@ class ConversationsContainer extends React.Component {
           openConversation={this.props.openConversation}
           setOpenConversation={this.props.setOpenConversation}
         />
-        <Widget
-          title='Bulletin Chat'
-          subtitle=''
-          handleNewUserMessage={this.handleNewUserMessage}
-          showCloseButton={true}
-          showTimeStamp={false}
-          launcher={handleToggle => this.getCustomLauncher(handleToggle, this.props.openConversation, this.props.setOpenConversation)}
-          senderPlaceHolder='Send a message...'
-        />
+        <div className='widget-container'>
+          <Widget
+            title='Bulletin Chat'
+            subtitle=''
+            handleNewUserMessage={this.handleNewUserMessage}
+            showCloseButton={true}
+            showTimeStamp={false}
+            launcher={handleToggle => this.getCustomLauncher(handleToggle, this.props.openConversation, this.props.setOpenConversation)}
+            senderPlaceHolder='Send a message...'
+          />
+        </div>
       </div>
     );
   }
@@ -137,7 +166,8 @@ const mapStateToProps = (state) => {
   return {
     username: state.conversationsReducer.username,
     conversations: state.conversationsReducer.conversations,
-    openConversation: state.conversationsReducer.openConversation
+    openConversation: state.conversationsReducer.openConversation,
+    messagesCount: state.badgesReducer.messages
   };
 };
 
@@ -145,7 +175,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getConversations: (username, conversations) => dispatch({ type: 'GET_CONVERSATIONS', username: username, conversations: conversations }),
     setOpenConversation: conversation => dispatch({ type: 'SET_OPEN_CONVERSATION', conversation: conversation }),
-    addMessageToConversation: (message, conversationId) => dispatch({ type: 'ADD_MESSAGE_TO_CONVERSATION', message: message, conversationId: conversationId })
+    addMessageToConversation: (message, conversationId) => dispatch({ type: 'ADD_MESSAGE_TO_CONVERSATION', message: message, conversationId: conversationId }),
+    udpateConversation: conversation => dispatch({ type: 'UPDATE_CONVERSATION', conversation: conversation }),
+    setMessagesBadgeCount: messagesCount => dispatch({ type: 'SET_MESSAGES_BADGE_COUNT', messagesCount: messagesCount })
   };
 };
 
