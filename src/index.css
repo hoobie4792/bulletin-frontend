@@ -101,14 +101,6 @@ input {
   padding: 0px 0px 12px 0px;
 }
 
-.fixed-content {
-  top: 0;
-  bottom:0;
-  position:fixed;
-  overflow-y:scroll;
-  overflow-x:hidden;
-}
-
 .close-chat-button {
   margin-top: 10px;
   border-radius: 5px;
@@ -634,4 +626,20 @@ input {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.back-to-top-button {
+  display: none;
+  padding: 5px 20px 5px 20px;
+  text-align: center;
+  background: #3d6081;
+  color: #FDFFFF;
+  border: 2px solid #cccccc;
+  border-radius: 20px;
+  position: fixed;
+  top: 3%;
+  left: 50%;
+  margin-left: -55px;
+  cursor: pointer;
+  z-index: 1100;
 }

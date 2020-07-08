@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { Grid, Button } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import formatDate from '../../Helpers/formatDate';
 
 class UserHeader extends React.Component {
