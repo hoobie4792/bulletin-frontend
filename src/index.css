@@ -102,11 +102,13 @@ input {
 }
 
 .close-chat-button {
-  margin-top: 10px;
+  margin-top:15px;
+  padding: 6px;
   border-radius: 5px;
-  background: #97e4f3;
-  border: none;
-  width: 30%;
+  background: #3d6081;
+  border: 1px solid #969696;
+  color: #FDFFFF;
+  width: 40%;
 }
 
 .new-conversation-search-user-container {
@@ -211,8 +213,8 @@ input {
 .comment-form > input {
   display: block;
   margin: 20px auto;
-  padding: 8px;
-  width: 97%;
+  padding: 12px;
+  width: 95%;
   background: #203343;
   border: 1px solid #192835;
   color: #FDFFFF;
@@ -226,8 +228,8 @@ input {
 .bulletin-form > input[type=text] {
   display: block;
   margin: auto auto 5px auto;
-  padding: 8px;
-  width: 97%;
+  padding: 12px;
+  width: 95%;
   background: #253a4d;
   color: #FDFFFF;
   border: 1px solid #192835;
@@ -342,8 +344,8 @@ input {
 .bulletin-form-secondary > input[type=text] {
   display: block;
   margin: auto auto 5px auto;
-  padding: 8px;
-  width: 97%;
+  padding: 12px;
+  width: 95%;
   background: #3d6081;
   color: #FDFFFF;
   border: none;
@@ -451,8 +453,8 @@ input {
 .bulletin-form-tertiary > input[type=text] {
   display: block;
   margin: auto auto 5px auto;
-  padding: 8px;
-  width: 97%;
+  padding: 12px;
+  width: 95%;
   background: #3d6081;
   color: #FDFFFF;
   border: none;
@@ -462,8 +464,8 @@ input {
 .bulletin-form-tertiary > input[type=password] {
   display: block;
   margin: auto auto 5px auto;
-  padding: 8px;
-  width: 97%;
+  padding: 12px;
+  width: 95%;
   background: #3d6081;
   color: #FDFFFF;
   border: none;
@@ -501,8 +503,8 @@ input {
 .account-form > input[type=text] {
   display: block;
   margin: 5px auto 5px auto;
-  padding: 8px;
-  width: 97%;
+  padding: 12px;
+  width: 95%;
   background: #3d6081;
   color: #FDFFFF;
   border: none;
@@ -512,8 +514,8 @@ input {
 .account-form > input[type=password] {
   display: block;
   margin: 5px auto 5px auto;
-  padding: 8px;
-  width: 97%;
+  padding: 12px;
+  width: 95%;
   background: #3d6081;
   color: #FDFFFF;
   border: none;
@@ -609,7 +611,7 @@ input {
 }
 
 .widget-container ::placeholder {
-  color: grey;
+  color: #cccccc;
 }
 
 .no-notifications-messages {
@@ -642,4 +644,40 @@ input {
   margin-left: -55px;
   cursor: pointer;
   z-index: 1100;
+}
+
+.conversations-container > .widget-container > .rcw-widget-container > .active {
+  box-shadow: none;
+  border: 1px solid #969696;
+}
+
+.rcw-widget-container > .rcw-conversation-container > .rcw-header {
+  background: #192835;
+}
+
+.rcw-widget-container > .rcw-conversation-container > .rcw-messages-container {
+  background: #253a4d;
+}
+
+.rcw-widget-container > .rcw-conversation-container > .rcw-messages-container > .rcw-message > .rcw-response > .rcw-message-text {
+  background: #495b66;
+  color: #FDFFFF;
+}
+
+.rcw-widget-container > .rcw-conversation-container > .rcw-messages-container > .rcw-message > .rcw-client > .rcw-message-text {
+  background: #486683;
+  color: #FDFFFF
+}
+
+.rcw-widget-container > .rcw-conversation-container > .rcw-sender {
+  background: #3d6081;
+}
+
+.rcw-widget-container > .rcw-conversation-container > .rcw-sender > input {
+  background: #3d6081;
+  color: #FDFFFF;
+}
+
+.rcw-widget-container > .rcw-conversation-container > .rcw-sender > button {
+  background: #3d6081;
 }
