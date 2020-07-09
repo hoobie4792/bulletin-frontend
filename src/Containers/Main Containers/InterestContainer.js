@@ -43,7 +43,7 @@ class InterestsContainer extends React.Component {
           className='back-to-top-button'
           onClick={this.scrollToTop}
         >Back to Top</button>
-        <PostsList posts={this.props.posts} />
+        <PostsList posts={this.props.posts} updatePosts={this.props.updatePosts} />
       </React.Fragment>
     )
   }
@@ -57,7 +57,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPosts: posts => dispatch({ type: 'GET_INTERESTS_POSTS', posts: posts })
+    getPosts: posts => dispatch({ type: 'GET_INTERESTS_POSTS', posts: posts }),
+    updatePosts: (post) => dispatch({ type: 'UPDATE_INTERESTS_POSTS', post: post })
   }
 }
 
