@@ -61,8 +61,7 @@ const PostFooter = (props) => {
           <ShareOutlined />
         </Icon>
       </Button>
-      {/* {commentDrawerOpen && <CommentsContainer post={props.post} updatePosts={props.updatePosts} />} */}
-      <CommentsContainer post={props.post} updatePosts={props.updatePosts} />
+      {commentDrawerOpen && <CommentsContainer post={props.post} updatePosts={props.updatePosts} />}
       {modalOpen && <SharePostModal open={modalOpen} handleClose={() => setModalOpen(false)} post={props.post} updatePosts={props.updatePosts} />}
     </div>
   );
