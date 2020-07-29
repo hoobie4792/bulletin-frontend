@@ -7,7 +7,7 @@ const CommentsContainer = (props) => {
   return (
     <div className='comments-container'>
       <CommentsList comments={props.post.comments} />
-      {/* {props.loggedIn && <NewCommentForm post={props.post} updatePosts={props.updatePosts} />} */}
+      {props.loggedIn && <NewCommentForm post={props.post} updatePosts={props.updatePosts} />}
     </div>
   )
 }
