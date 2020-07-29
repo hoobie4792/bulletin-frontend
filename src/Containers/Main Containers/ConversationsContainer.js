@@ -4,6 +4,7 @@ import ConversationsList from '../Conversations/ConversationsList';
 import NewConversationFooter from '../../Components/Conversations/NewConversationFooter';
 import { Widget, deleteMessages, addResponseMessage, addUserMessage, markAllAsRead, toggleWidget } from 'react-chat-widget'
 import 'react-chat-widget/lib/styles.css';
+import { API_ROOT } from '../../services/apiRoot';
 
 class ConversationsContainer extends React.Component {
   componentDidMount() {
@@ -26,7 +27,7 @@ class ConversationsContainer extends React.Component {
       },
     };
 
-    fetch('http://localhost:3000/api/v1/conversations', fetchObj)
+    fetch(`${API_ROOT}/conversations`, fetchObj)
       .then((res) => res.json())
       .then((conversationData) => {
         if (conversationData.message) {
@@ -75,7 +76,7 @@ class ConversationsContainer extends React.Component {
       }
     }
 
-    fetch(`http://localhost:3000/api/v1/conversations/${conversation.id}/set-messages-read`, fetchObj)
+    fetch(`${API_ROOT}/conversations/${conversation.id}/set-messages-read`, fetchObj)
       .then(res => res.json())
       .then(conversationResponse => {
         if (!conversationResponse.message) {
@@ -118,7 +119,7 @@ class ConversationsContainer extends React.Component {
       body: JSON.stringify(messageObj)
     };
 
-    fetch('http://localhost:3000/api/v1/messages', fetchObj)
+    fetch(`${API_ROOT}/messages`, fetchObj)
       .then((res) => res.json())
       .then((messageResponse) => {
         if (messageResponse.message) {

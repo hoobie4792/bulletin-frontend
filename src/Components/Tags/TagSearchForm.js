@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { API_ROOT } from '../../services/apiRoot';
 
 const handleTagSearch = (e, props) => {
   e.preventDefault();
@@ -30,7 +31,7 @@ const handleTagSearch = (e, props) => {
     body: JSON.stringify(tagsObj)
   }
 
-  fetch('http://localhost:3000/api/v1/get-posts-by-tag', fetchObj)
+  fetch(`${API_ROOT}/get-posts-by-tag`, fetchObj)
     .then(res => res.json())
     .then(posts => {
       if (posts.message) {

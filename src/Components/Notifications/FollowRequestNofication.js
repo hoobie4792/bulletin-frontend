@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import formatDate from '../../Helpers/formatDate';
+import { API_ROOT } from '../../services/apiRoot';
 
 const handleAccept = (props) => {
   const token = localStorage.getItem('auth_token');
@@ -25,7 +26,7 @@ const handleAccept = (props) => {
     body: JSON.stringify(acceptObj)
   }
 
-  fetch('http://localhost:3000/api/v1/accept-follow-request', fetchObj)
+  fetch(`${API_ROOT}/accept-follow-request`, fetchObj)
     .then(res => res.json())
     .then(acceptResponse => {
       if (acceptResponse.message) {
@@ -59,7 +60,7 @@ const handleDeny = (props) => {
     body: JSON.stringify(denyObj)
   }
 
-  fetch('http://localhost:3000/api/v1/deny-follow-request', fetchObj)
+  fetch(`${API_ROOT}/deny-follow-request`, fetchObj)
     .then(res => res.json())
     .then(denyResponse => {
       if (denyResponse.message) {

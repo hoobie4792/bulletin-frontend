@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import { API_ROOT } from '../../services/apiRoot';
 
 const handleLogin = (e, props) => {
   e.preventDefault();
@@ -22,7 +23,7 @@ const handleLogin = (e, props) => {
     body: JSON.stringify(userObj)
   }
 
-  fetch('http://localhost:3000/api/v1/login', fetchObj)
+  fetch(`${API_ROOT}/login`, fetchObj)
     .then(res => res.json())
     .then(loginResponse => {
       if (loginResponse.token) {

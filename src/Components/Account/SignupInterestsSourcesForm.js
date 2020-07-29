@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
 import SignupSource from './SignupSource';
 import SignupInterest from './SignupInterest';
+import { API_ROOT } from '../../services/apiRoot';
 
 class SignupInterestsSourcesForm extends React.Component {
   componentDidMount() {
@@ -16,14 +17,14 @@ class SignupInterestsSourcesForm extends React.Component {
   fetchedInterests = false;
 
   fetchSources = () => {
-    fetch('http://localhost:3000/api/v1/news_sources')
+    fetch(`${API_ROOT}/news_sources`)
       .then(res => res.json())
       .then(sources => this.props.setSources(sources))
       .catch(() => alert('Something went wrong'));
   }
 
   fetchInterests = () => {
-    fetch('http://localhost:3000/api/v1/interests')
+    fetch(`${API_ROOT}/interests`)
       .then(res => res.json())
       .then(interests => this.props.setInterests(interests))
       .catch(() => alert('Something went wrong'));
@@ -44,7 +45,7 @@ class SignupInterestsSourcesForm extends React.Component {
       }
     }
 
-    fetch('http://localhost:3000/api/v1/get-interests-and-news-sources', fetchObj)
+    fetch(`${API_ROOT}/get-interests-and-news-sources`, fetchObj)
       .then(res => res.json())
       .then(iNResponse => {
         if (!iNResponse.message) {
@@ -122,7 +123,7 @@ class SignupInterestsSourcesForm extends React.Component {
       body: JSON.stringify(sourcesObj)
     }
 
-    fetch('http://localhost:3000/api/v1/user_news_sources', fetchObj)
+    fetch(`${API_ROOT}/user_news_sources`, fetchObj)
       .then(res => res.json())
       .then(sourcesResponse => {
         if (sourcesResponse.message) {
@@ -150,7 +151,7 @@ class SignupInterestsSourcesForm extends React.Component {
       body: JSON.stringify(interestsObj)
     }
 
-    fetch('http://localhost:3000/api/v1/user_interests', fetchObj)
+    fetch(`${API_ROOT}/user_interests`, fetchObj)
       .then(res => res.json())
       .then(interestsResponse => {
         if (interestsResponse.message) {

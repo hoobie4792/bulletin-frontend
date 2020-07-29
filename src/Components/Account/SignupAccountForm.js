@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
+import { API_ROOT } from '../../services/apiRoot';
 
 const handleSignup = (e, props) => {
   e.preventDefault();
@@ -26,7 +27,7 @@ const handleSignup = (e, props) => {
     body: JSON.stringify(userObj)
   }
 
-  fetch('http://localhost:3000/api/v1/signup', fetchObj)
+  fetch(`${API_ROOT}/signup`, fetchObj)
     .then(res => res.json())
     .then(signupResponse => {
       if (signupResponse.token) {

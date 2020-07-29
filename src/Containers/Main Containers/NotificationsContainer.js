@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GeneralNotification from '../../Components/Notifications/GeneralNotification';
 import FollowRequestNotification from '../../Components/Notifications/FollowRequestNofication';
+import { API_ROOT } from '../../services/apiRoot';
 
 class NotificationsContainer extends React.Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ class NotificationsContainer extends React.Component {
       }
     }
 
-    fetch('http://localhost:3000/api/v1/notifications', fetchObj)
+    fetch(`${API_ROOT}/notifications`, fetchObj)
       .then(res => res.json())
       .then(notifications => {
         if (notifications.message) {

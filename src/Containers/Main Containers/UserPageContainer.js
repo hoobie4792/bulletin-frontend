@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import UserHeader from '../../Components/User Page/UserHeader';
 import PostsList from '../Posts/PostsList';
+import { API_ROOT } from '../../services/apiRoot';
 
 class UserPageContainer extends React.Component {
   componentDidMount() {
@@ -25,7 +26,7 @@ class UserPageContainer extends React.Component {
       }
     }
 
-    fetch(`http://localhost:3000/api/v1/users/${this.props.match.params.username}`, fetchObj)
+    fetch(`${API_ROOT}/users/${this.props.match.params.username}`, fetchObj)
       .then(res => res.json())
       .then(user => {
         if (!user.message) {

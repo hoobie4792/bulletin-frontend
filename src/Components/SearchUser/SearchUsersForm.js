@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { API_ROOT } from '../../services/apiRoot';
 
 const handleSearch = (e, props) => {
   e.preventDefault();
@@ -18,7 +19,7 @@ const handleSearch = (e, props) => {
     body: JSON.stringify(userObj)
   }
 
-  fetch('http://localhost:3000/api/v1/search-users', fetchObj)
+  fetch(`${API_ROOT}/search-users`, fetchObj)
     .then(res => res.json())
     .then(searchedUsers => {
       props.getSearchedUsers(searchedUsers)
