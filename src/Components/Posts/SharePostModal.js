@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Modal } from '@material-ui/core';
 import NewsPost from './NewsPost';
 import RegularUserPost from './RegularUserPost';
+import { API_ROOT } from '../../services/apiRoot';
 
 const sharePost = (e, props) => {
   e.preventDefault();
@@ -34,7 +35,7 @@ const sharePost = (e, props) => {
     body: JSON.stringify(sharedPostObj)
   }
 
-  fetch('http://localhost:3000/api/v1/create-shared-post', fetchObj)
+  fetch(`${API_ROOT}/create-shared-post`, fetchObj)
     .then(res => res.json())
     .then(sharedPostResponse => {
       if (sharedPostResponse.message) {

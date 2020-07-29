@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router'
+import { API_ROOT } from '../../services/apiRoot';
 
 class UpdateAccountForm extends React.Component {
   state = {
@@ -26,7 +27,7 @@ class UpdateAccountForm extends React.Component {
       }
     }
 
-    fetch('http://localhost:3000/api/v1/get-username', fetchObj)
+    fetch(`${API_ROOT}/get-username`, fetchObj)
       .then(res => res.json())
       .then(usernameResponse => {
         if (usernameResponse.username) {
@@ -46,7 +47,7 @@ class UpdateAccountForm extends React.Component {
       }
     }
 
-    fetch(`http://localhost:3000/api/v1/users/${username}`, fetchObj)
+    fetch(`${API_ROOT}/users/${username}`, fetchObj)
       .then(res => res.json())
       .then(user => {
         if (!user.message) {
@@ -85,7 +86,7 @@ class UpdateAccountForm extends React.Component {
       body: JSON.stringify(userObj)
     }
 
-    fetch('http://localhost:3000/api/v1/update-user', fetchObj)
+    fetch(`${API_ROOT}/update-user`, fetchObj)
       .then(res => res.json())
       .then(updateResponse => {
         if (updateResponse.message) {

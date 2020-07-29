@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_ROOT } from '../../services/apiRoot';
 
 const handleNewComment = (e, props) => {
   e.preventDefault();
@@ -25,7 +26,7 @@ const handleNewComment = (e, props) => {
     body: JSON.stringify(commentObj)
   }
 
-  fetch('http://localhost:3000/api/v1/comments', fetchObj)
+  fetch(`${API_ROOT}/comments`, fetchObj)
     .then(res => res.json())
     .then(post => {
       if (post.message) {

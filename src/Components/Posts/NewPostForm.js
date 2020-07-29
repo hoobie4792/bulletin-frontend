@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { API_ROOT } from '../../services/apiRoot';
 
 const handleNewPost = (e, props) => {
   e.preventDefault();
@@ -34,7 +35,7 @@ const handleNewPost = (e, props) => {
     body: JSON.stringify(postObj)
   }
 
-  fetch('http://localhost:3000/api/v1/posts', fetchObj)
+  fetch(`${API_ROOT}/posts`, fetchObj)
     .then(res => res.json())
     .then(post => {
       if (post.message) {

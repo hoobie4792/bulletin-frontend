@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import PostsList from '../Posts/PostsList';
+import { API_ROOT } from '../../services/apiRoot';
 
 class NewsSourcesContainer extends React.Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class NewsSourcesContainer extends React.Component {
   }
 
   fetchPosts = () => {
-    fetch(`http://localhost:3000/api/v1/news_sources/${this.props.match.params.newsSource}`)
+    fetch(`${API_ROOT}/news_sources/${this.props.match.params.newsSource}`)
       .then(res => res.json())
       .then(newsSourceResponse => {
         this.props.getPosts(newsSourceResponse)

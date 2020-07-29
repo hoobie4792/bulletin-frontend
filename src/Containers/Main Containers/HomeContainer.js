@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NewPostForm from '../../Components/Posts/NewPostForm';
 import PostsList from '../Posts/PostsList';
+import { API_ROOT } from '../../services/apiRoot';
 
 class HomeContainer extends React.Component {
   componentDidMount() {
@@ -27,7 +28,7 @@ class HomeContainer extends React.Component {
       fetchObj = { ...fetchObj, headers: { ...fetchObj.headers, 'Auth-Token': token } };
     }
 
-    fetch('http://localhost:3000/api/v1/posts', fetchObj)
+    fetch(`${API_ROOT}/posts`, fetchObj)
       .then(res => res.json())
       .then(posts => {
         this.props.getPosts(posts);

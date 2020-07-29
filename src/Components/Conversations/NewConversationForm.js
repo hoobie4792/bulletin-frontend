@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { List, ListItem, ListItemText } from '@material-ui/core';
+import { API_ROOT } from '../../services/apiRoot';
 
 const handleSearch = (e, setSearchedParticipants) => {
   e.preventDefault();
@@ -19,7 +20,7 @@ const handleSearch = (e, setSearchedParticipants) => {
     body: JSON.stringify(userObj)
   }
 
-  fetch('http://localhost:3000/api/v1/search-users', fetchObj)
+  fetch(`${API_ROOT}/search-users`, fetchObj)
     .then(res => res.json())
     .then(searchedUsers => {
       setSearchedParticipants(searchedUsers.map(user => user.username));
@@ -66,7 +67,7 @@ const handleNewConversation = (e, participants, props) => {
     body: JSON.stringify(conversationObj)
   }
 
-  fetch('http://localhost:3000/api/v1/conversations', fetchObj)
+  fetch(`${API_ROOT}/conversations`, fetchObj)
     .then(res => res.json())
     .then(conversationResponse => {
       if (conversationResponse.message) {

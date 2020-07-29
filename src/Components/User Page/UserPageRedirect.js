@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { API_ROOT } from '../../services/apiRoot';
 
 const redirect = (history) => {
   const token = localStorage.getItem('auth_token');
@@ -16,7 +17,7 @@ const redirect = (history) => {
     }
   }
 
-  fetch('http://localhost:3000/api/v1/get-username', fetchObj)
+  fetch(`${API_ROOT}/get-username`, fetchObj)
     .then(res => res.json())
     .then(usernameResponse => {
       if (usernameResponse.username) {

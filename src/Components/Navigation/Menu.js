@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import InterestsNewsSourcesMenu from './InterestsNewsSourcesMenu';
+import { API_ROOT } from '../../services/apiRoot';
 
 // Icons
 import {
@@ -33,7 +34,7 @@ class Menu extends React.Component {
       }
     }
 
-    fetch('http://localhost:3000/api/v1/get-badges', fetchObj)
+    fetch(`${API_ROOT}/get-badges`, fetchObj)
       .then(res => res.json())
       .then(badgesResponse => {
         if (!badgesResponse.message) {

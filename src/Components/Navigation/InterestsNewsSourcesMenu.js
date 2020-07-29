@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { List, ListItem, ListItemText, Collapse } from '@material-ui/core';
+import { API_ROOT } from '../../services/apiRoot';
 
 // Icons
 import {
@@ -34,7 +35,7 @@ class InterestsNewsSourcesMenu extends React.Component {
       }
     }
 
-    fetch('http://localhost:3000/api/v1/get-interests-and-news-sources', fetchObj)
+    fetch(`${API_ROOT}/get-interests-and-news-sources`, fetchObj)
       .then(res => res.json())
       .then(iNResponse => {
         if (!iNResponse.message) {

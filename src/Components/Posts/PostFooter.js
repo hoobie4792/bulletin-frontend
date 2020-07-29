@@ -3,6 +3,7 @@ import CommentsContainer from '../../Containers/Comments/CommentsContainer';
 import { Button, Icon } from '@material-ui/core';
 import { ThumbUpOutlined, ChatOutlined, ShareOutlined } from '@material-ui/icons';
 import SharePostModal from './SharePostModal';
+import { API_ROOT } from '../../services/apiRoot';
 
 const likePost = (props) => {
   const token = localStorage.getItem('auth_token');
@@ -25,7 +26,7 @@ const likePost = (props) => {
     body: JSON.stringify(postObj)
   }
 
-  fetch('http://localhost:3000/api/v1/likes', fetchObj)
+  fetch(`${API_ROOT}/likes`, fetchObj)
     .then(res => res.json())
     .then(postResponse => {
       if (postResponse.message) {

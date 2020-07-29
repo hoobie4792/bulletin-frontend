@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
+import { API_ROOT } from '../../services/apiRoot';
 
 class Header extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class Header extends React.Component {
       }
     }
 
-    fetch('http://localhost:3000/api/v1/get-username', fetchObj)
+    fetch(`${API_ROOT}/get-username`, fetchObj)
       .then(res => res.json())
       .then(usernameResponse => {
         if (usernameResponse.username) {

@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
 import formatDate from '../../Helpers/formatDate';
+import { API_ROOT } from '../../services/apiRoot';
 
 class UserHeader extends React.Component {
   state = {
@@ -28,7 +29,7 @@ class UserHeader extends React.Component {
       }
     }
 
-    fetch('http://localhost:3000/api/v1/get-username', fetchObj)
+    fetch(`${API_ROOT}/get-username`, fetchObj)
       .then(res => res.json())
       .then(usernameResponse => {
         if (usernameResponse.username) {
@@ -57,7 +58,7 @@ class UserHeader extends React.Component {
       body: JSON.stringify(followObj)
     }
 
-    fetch('http://localhost:3000/api/v1/follow_requests', fetchObj)
+    fetch(`${API_ROOT}/follow_requests`, fetchObj)
       .then(res => res.json())
       .then(followResponse => {
         if (followResponse.message) {
