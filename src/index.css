@@ -3,7 +3,7 @@ body {
   background: #192835;
   color: #FDFFFF;
   font-weight: 500;
-  font-family: Haettenschweiler, Arial, Helvetica, sans-serif, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
 }
 
 body::-webkit-scrollbar {
