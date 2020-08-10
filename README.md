@@ -30,9 +30,9 @@ You may also view a video demonstration [here](https://www.youtube.com/watch?v=L
 
 ## Prerequisites
 The backend install steps require the following on your system
-* Node.js
-* Yarn
-* React
+* [Node.js](https://nodejs.org/en/)
+* [Yarn](https://yarnpkg.com/)
+* [React](https://reactjs.org/)
 
 
 ## Install Instructions
